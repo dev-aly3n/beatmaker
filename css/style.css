@@ -1,0 +1,127 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+@layer components {
+
+    /* this is the start of navbar css */
+    nav {
+      min-height: 8vh;
+      font-family: 'Train One', cursive;
+      @apply flex justify-around items-center bg-gray-700;
+    }
+  
+    .logo {
+      @apply text-blue-100 uppercase tracking-widest text-3xl font-bold;
+    }
+  
+    .nav-links {
+      width: 40%;
+      @apply flex  mx-0;
+    }
+  
+    .nav-links li {
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+     @apply list-none hover:bg-green-900 text-center  cursor-pointer ;
+  
+    }
+  
+    .nav-links .active {
+  
+     @apply bg-green-900 ;
+    }
+  
+    .nav-links a {
+      @apply text-green-200 no-underline tracking-wider font-medium text-2xl;
+    }
+  
+    .burger {
+      display: none;
+    }
+  
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+  
+    @media screen and (max-width:1025px) {
+      body {
+        overflow-x: hidden;
+      }
+    }
+  
+    @media screen and (max-width:1024px) {
+      .nav-links {
+        width: 60%;
+        right: 0px;
+        min-height: 92vh;
+        top: 8vh;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+  
+        @apply bg-gray-700 absolute flex flex-col items-stretch;
+      }
+  
+      .nav-links li {
+        opacity: 0;
+        @apply hover:bg-green-900 text-center;
+  
+      }
+  
+      .burger {
+        display: block;
+        padding: 5px;
+      }
+    }
+  
+    .nav-active {
+      transform: translateX(0%);
+  
+    }
+  
+    
+    .toggle .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+  
+    .toggle .line2 {
+      opacity: 0;
+    }
+  
+    .toggle .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  
+  /* this is the end of  the navbar css */
+  
+  
+  /* animation for navbar css start*/
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0px)
+    }
+  }
+
+  /* animation for navbar css stop */
+  
+
+
+
+
+}
