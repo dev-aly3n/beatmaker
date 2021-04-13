@@ -589,15 +589,18 @@ video {
 
 nav {
   min-height: 8vh;
-  font-family: 'Train One', cursive;
   --tw-bg-opacity: 1;
-  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .logo {
+  font-family: 'Londrina Outline', cursive;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+          animation: glow 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -608,10 +611,13 @@ nav {
 }
 
 .nav-links {
-  width: 40%;
+  width: 50%;
+  font-family: 'Jockey One', cursive;
   display: flex;
   margin-left: 0px;
   margin-right: 0px;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 
 .nav-links li {
@@ -623,7 +629,7 @@ nav {
 
 .nav-links li:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(6, 78, 59, var(--tw-bg-opacity));
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
 
 .nav-links li {
@@ -632,17 +638,22 @@ nav {
   text-align: center;
 }
 
+.nav-links li:hover {
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+
 .nav-links .active {
   --tw-bg-opacity: 1;
-  background-color: rgba(6, 78, 59, var(--tw-bg-opacity));
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
 .nav-links a {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
-  --tw-text-opacity: 1;
-  color: rgba(167, 243, 208, var(--tw-text-opacity));
   text-decoration: none;
   letter-spacing: 0.05em;
 }
@@ -675,7 +686,7 @@ nav {
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     --tw-bg-opacity: 1;
-    background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -688,7 +699,7 @@ nav {
 
   .nav-links li:hover {
     --tw-bg-opacity: 1;
-    background-color: rgba(6, 78, 59, var(--tw-bg-opacity));
+    background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
   }
 
   .nav-links li {
@@ -745,7 +756,90 @@ nav {
   }
 }
 
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+  }
+}
+
 /* animation for navbar css stop */
+
+.beat-container {
+  min-height: 100vh;
+  max-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+i, svg {
+  pointer-events: none;
+}
+
+.kick-pad, .snare-pad, .hihat-pad {
+  cursor: pointer;
+  height: 5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 2.5rem;
+}
+
+.kick-pad{
+  --tw-bg-opacity: 1;
+  background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
+}
+
+.snare-pad{
+  --tw-bg-opacity: 1;
+  background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
+}
+
+.hihat-pad{
+  --tw-bg-opacity: 1;
+  background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+
+.kick-track, .snare-track, .hihat-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  width: 66.666667%;
+}
+
+.kick, .snare, .hihat {
+  display: flex;
+}
+
+.controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -31992,6 +32086,10 @@ nav {
 .backdrop-sepia {
   --tw-backdrop-sepia: sepia(100%);
 }
+
+/* .{
+
+} */
 
 @media (min-width: 640px) {
   .sm\:container {

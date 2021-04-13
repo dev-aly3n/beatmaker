@@ -1,50 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
-    <title>little FL studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Jockey+One&display=swap" rel="stylesheet">
+    <title>Aly3n Beat Maker</title>
 </head>
-<body> 
-        <!-- top menu navbar -->
-        <section id="top-menu">
-            <nav id="navigation" class="navigation">
-                <div class="logo flex justify-around items-center">
-                    <img class="float-left w-16 h-16 my-2 mx-10 cursor-pointer transform rotate-12" src="img/logo2.png"
-                    href="#">
-                    <h1>Aly3n's modern navBar</h1>
-                </div>
-                <ul class="nav-links navigation">
-                    <li class="active"><a  href="#">Home</a></li>
-                    <li><a href="#">Blog</a> </li>
-                    <li><a href="#">Store</a> </li>
-                    <li><a href="#">Contact Us</a> </li>
-                    <li><a href="#">Our story</a> </li>
-                </ul>
-    
-                <div class="navigation burger cursor-pointer">
-                    <div class="navigation line1"> </div>
-                    <div class="navigation line2"> </div>
-                    <div class="navigation line3"> </div>
-                </div>
-    
-                <div>
-                    <img class="float-right w-16 my-2 mr-5 cursor-pointer border-green-200 border-2 rounded-full hover:bg-gray-800
-             hover:border-gray-300 animate-pulse" src="img/cart.png" href="#">
-                </div>
-            </nav>
-        </section>
+
+<body>
 
 
-    
+    <!-- top menu navbar -->
+    <section id="top-menu">
+        <nav id="navigation" class="navigation">
+            <div class="logo flex justify-around items-center">
+                <span class="float-left  mx-10 cursor-pointer">
+                    <i class="fab fa-napster fa-lg text-blue-200"
+                    ></i>
+                </span>
+                <h1 class="logo">Aly3n Beat Maker</h1>
+            </div>
+            <ul class="nav-links navigation">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Blog</a> </li>
+                <li><a href="#">Top pieces</a> </li>
+                <li><a href="#">Profile</a> </li>
+                <li><a href="#">Share</a> </li>
+            </ul>
+            <div class="navigation burger cursor-pointer">
+                <div class="navigation line1"> </div>
+                <div class="navigation line2"> </div>
+                <div class="navigation line3"> </div>
+            </div>
+        </nav>
+    </section>
+
+
+
+    <!-- beat app section -->
+    <section id="beat-section">
+        <div class="beat-container">
+            <div class="kick-track">
+                <div class="controls">
+                    <h2>Kick</h2>
+                    <button class="mute kick-volume" data-track="0">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
+                    <select name="kick-select" id="kick-select">
+                        <option value="./sounds/classic-kick.wav">classic kick</option>
+                        <option value="./sounds/classic-kick.wav">classic kick</option>
+                        <option value="./sounds/classic-kick.wav">classic kick</option> 
+                    </select>
+                    </div>
+                    <div class="kick">
+                        <div class="pad kick-pad b0"></div>
+                        <div class="pad kick-pad b1"></div>
+                        <div class="pad kick-pad b2"></div>
+                        <div class="pad kick-pad b3"></div>
+                        <div class="pad kick-pad b4"></div>
+                        <div class="pad kick-pad b5"></div>
+                        <div class="pad kick-pad b6"></div>
+                        <div class="pad kick-pad b7"></div>
+                        <div class="pad kick-pad b8"></div>
+                        <div class="pad kick-pad b9"></div>
+                    </div>
+            </div>
+            <div class="snare-track">
+                <div class="controls">
+                    <h2>Snare</h2>
+                    <button class="mute snare-volume" data-track="0">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
+                    <select name="snare-select" id="snare-select">
+                        <option value="./sounds/classic-snare.wav">classic snare</option>
+                        <option value="./sounds/classic-snare.wav">classic snare</option>
+                        <option value="./sounds/classic-snare.wav">classic snare</option> 
+                    </select>
+                    </div>
+                    <div class="snare">
+                        <div class="pad snare-pad b0"></div>
+                        <div class="pad snare-pad b1"></div>
+                        <div class="pad snare-pad b2"></div>
+                        <div class="pad snare-pad b3"></div>
+                        <div class="pad snare-pad b4"></div>
+                        <div class="pad snare-pad b5"></div>
+                        <div class="pad snare-pad b6"></div>
+                        <div class="pad snare-pad b7"></div>
+                        <div class="pad snare-pad b8"></div>
+                        <div class="pad snare-pad b9"></div>
+                    </div>
+            </div>
+            <div class="hihat-track">
+                <div class="controls">
+                    <h2>Hihat</h2>
+                    <button class="mute hihat-volume" data-track="0">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
+                    <select name="hihat-select" id="hihat-select">
+                        <option value="./sounds/classic-hihat.wav">classic hihat</option>
+                        <option value="./sounds/classic-hihat.wav">classic hihat</option>
+                        <option value="./sounds/classic-hihat.wav">classic hihat</option> 
+                    </select>
+                    </div>
+                    <div class="hihat">
+                        <div class="pad hihat-pad b0"></div>
+                        <div class="pad hihat-pad b1"></div>
+                        <div class="pad hihat-pad b2"></div>
+                        <div class="pad hihat-pad b3"></div>
+                        <div class="pad hihat-pad b4"></div>
+                        <div class="pad hihat-pad b5"></div>
+                        <div class="pad hihat-pad b6"></div>
+                        <div class="pad hihat-pad b7"></div>
+                        <div class="pad hihat-pad b8"></div>
+                        <div class="pad hihat-pad b9"></div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-     integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
-      crossorigin="anonymous"></script>
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous"></script>
     <script src="./app.js"></script>
 </body>
+
 </html>

@@ -9,119 +9,175 @@
 
     /* this is the start of navbar css */
     nav {
-      min-height: 8vh;
-      font-family: 'Train One', cursive;
-      @apply flex justify-around items-center bg-gray-700;
+        min-height: 8vh;
+        @apply flex  justify-around bg-gray-800 items-center;
     }
-  
+
     .logo {
-      @apply text-blue-100 uppercase tracking-widest text-3xl font-bold;
+        font-family: 'Londrina Outline', cursive;
+        animation: glow 1s ease-in-out infinite alternate;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        @apply text-blue-100 uppercase tracking-widest text-3xl font-bold;
     }
-  
+
     .nav-links {
-      width: 40%;
-      @apply flex  mx-0;
-    }
-  
-    .nav-links li {
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-bottom: 20px;
-      padding-left: 20px;
-     @apply list-none hover:bg-green-900 text-center  cursor-pointer ;
-  
-    }
-  
-    .nav-links .active {
-  
-     @apply bg-green-900 ;
-    }
-  
-    .nav-links a {
-      @apply text-green-200 no-underline tracking-wider font-medium text-2xl;
-    }
-  
-    .burger {
-      display: none;
-    }
-  
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 5px;
-      transition: all 0.3s ease;
-    }
-  
-    @media screen and (max-width:1025px) {
-      body {
-        overflow-x: hidden;
-      }
-    }
-  
-    @media screen and (max-width:1024px) {
-      .nav-links {
-        width: 60%;
-        right: 0px;
-        min-height: 92vh;
-        top: 8vh;
         width: 50%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-  
-        @apply bg-gray-700 absolute flex flex-col items-stretch;
-      }
-  
-      .nav-links li {
-        opacity: 0;
-        @apply hover:bg-green-900 text-center;
-  
-      }
-  
-      .burger {
-        display: block;
-        padding: 5px;
-      }
+        font-family: 'Jockey One', cursive;
+        @apply flex mx-0 text-gray-300;
     }
-  
+
+    .nav-links li {
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        @apply list-none hover:bg-gray-300 hover:text-gray-800 text-center cursor-pointer;
+
+    }
+
+    .nav-links .active {
+
+        @apply bg-gray-300 text-gray-800;
+    }
+
+    .nav-links a {
+        @apply no-underline tracking-wider font-medium text-2xl;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    @media screen and (max-width:1025px) {
+        body {
+            overflow-x: hidden;
+        }
+    }
+
+    @media screen and (max-width:1024px) {
+        .nav-links {
+            width: 60%;
+            right: 0px;
+            min-height: 92vh;
+            top: 8vh;
+            width: 50%;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in;
+
+            @apply bg-gray-800 absolute flex flex-col items-stretch;
+        }
+
+        .nav-links li {
+            opacity: 0;
+            @apply hover:bg-gray-300 text-center;
+
+        }
+
+        .burger {
+            display: block;
+            padding: 5px;
+        }
+    }
+
     .nav-active {
-      transform: translateX(0%);
-  
+        transform: translateX(0%);
+
     }
-  
-    
+
+
     .toggle .line1 {
-      transform: rotate(-45deg) translate(-5px, 6px);
+        transform: rotate(-45deg) translate(-5px, 6px);
     }
-  
+
     .toggle .line2 {
-      opacity: 0;
+        opacity: 0;
     }
-  
+
     .toggle .line3 {
-      transform: rotate(45deg) translate(-5px, -6px);
+        transform: rotate(45deg) translate(-5px, -6px);
     }
-  
-  /* this is the end of  the navbar css */
-  
-  
-  /* animation for navbar css start*/
-  @keyframes navLinkFade {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
+
+    /* this is the end of  the navbar css */
+
+
+    /* animation for navbar css start*/
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0px)
+        }
     }
-  
-    to {
-      opacity: 1;
-      transform: translateX(0px)
+
+    @keyframes glow {
+        from {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+        to {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+        }
+      }
+
+    /* animation for navbar css stop */
+
+
+    .beat-container {
+        min-height: 100vh;
+        max-width: 100vh;
+        @apply flex justify-center items-center flex-col ;
     }
-  }
 
-  /* animation for navbar css stop */
-  
+i , svg {
+    @apply pointer-events-none;
+}
 
+.kick-pad , .snare-pad , .hihat-pad {
+    @apply w-10 h-20 mx-4 my-2 cursor-pointer;
+}
 
+.kick-pad{
+@apply bg-red-200;
+}
+ 
+.snare-pad{
+@apply bg-yellow-200;
+}
 
+.hihat-pad{
+    @apply bg-green-200;
 
 }
+
+.kick-track , .snare-track , .hihat-track {
+    @apply flex items-center w-8/12 justify-between mt-12;
+}
+
+.kick, .snare, .hihat {
+    @apply flex;
+}
+
+.controls{
+    @apply flex justify-between items-center w-2/4 ;
+}
+
+h2 {
+    @apply text-3xl font-bold;
+}
+
+}
+
+/* .{
+
+} */
