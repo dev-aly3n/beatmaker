@@ -135,7 +135,6 @@
 
     .beat-container {
         min-height: 100vh;
-        max-width: 100vh;
         @apply flex justify-center items-center flex-col ;
     }
 
@@ -144,7 +143,7 @@ i , svg {
 }
 
 .kick-pad , .snare-pad , .hihat-pad {
-    @apply w-10 h-20 mx-4 my-2 cursor-pointer;
+    @apply w-7 h-16 mx-1 lg:mx-2 my-2 cursor-pointer;
 }
 
 .kick-pad{
@@ -160,22 +159,62 @@ i , svg {
 
 }
 
+.kick-pad.active{
+    @apply bg-red-500;
+}
+.snare-pad.active{
+    @apply bg-yellow-500;
+}
+.hihat-pad.active{
+    @apply bg-green-500;
+}
+
 .kick-track , .snare-track , .hihat-track {
-    @apply flex items-center w-8/12 justify-between mt-12;
+    @apply flex flex-col lg:flex-row items-center w-full justify-between py-4 ;
+}
+
+.kick-track{
+    @apply bg-red-50;
+
+} 
+.snare-track{
+    @apply bg-yellow-50;
+
+} 
+.hihat-track{
+    @apply bg-green-50;
+
 }
 
 .kick, .snare, .hihat {
-    @apply flex;
+    @apply flex w-4/5  justify-center;
 }
 
 .controls{
-    @apply flex justify-between items-center w-2/4 ;
+    @apply flex justify-between items-center w-72 ml-4 lg:ml-64;
 }
 
 h2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-bold w-24 text-center;
 }
 
+.pad {
+    transition: all 0.5s easee;
+
+}
+
+.controls button {
+    transition: all 0.5s ease;
+    @apply px-3 py-2 mx-2 border-none bg-gray-600 text-white text-base cursor-pointer;
+}
+
+.play {
+    @apply bg-gray-600 text-white py-4 px-8 mt-6 text-2xl border-none;
+}
+
+select {
+    @apply px-2 py-2 font-semibold w-40 bg-gray-50 border;
+}
 }
 
 /* .{
