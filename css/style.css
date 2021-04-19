@@ -142,7 +142,7 @@ i , svg {
     @apply pointer-events-none;
 }
 
-.kick-pad , .snare-pad , .hihat-pad {
+.kick-pad , .snare-pad , .hihat-pad , .clap-pad , .effect-pad {
     @apply w-7 h-16 mx-1 lg:mx-2 my-2 cursor-pointer;
 }
 
@@ -159,6 +159,16 @@ i , svg {
 
 }
 
+.clap-pad{
+    @apply bg-blue-200;
+
+}
+
+.effect-pad{
+    @apply bg-purple-200;
+
+}
+
 .kick-pad.active{
     @apply bg-red-500;
 }
@@ -169,7 +179,15 @@ i , svg {
     @apply bg-green-500;
 }
 
-.kick-track , .snare-track , .hihat-track {
+.clap-pad.active{
+    @apply bg-blue-500;
+}
+
+.effect-pad.active{
+    @apply bg-purple-500;
+}
+
+.kick-track , .snare-track , .hihat-track , .clap-track , .effect-track {
     @apply flex flex-col lg:flex-row items-center w-full justify-between py-4 ;
 }
 
@@ -185,8 +203,16 @@ i , svg {
     @apply bg-green-50;
 
 }
+.clap-track{
+    @apply bg-blue-50;
 
-.kick, .snare, .hihat {
+}
+.effect-track{
+    @apply bg-purple-50;
+
+}
+
+.kick, .snare, .hihat , .clap , .effect {
     @apply flex w-4/5  justify-center;
 }
 
