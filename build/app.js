@@ -46,9 +46,16 @@ class Drum {
     this.hihatAudio = document.querySelector(".hihat-sound");
     this.clapAudio = document.querySelector(".clap-sound");
     this.effectAudio = document.querySelector(".effect-sound");
+    this.currentKick = "./sounds/kick8.mp3";
+    this.currentSnare = "./sounds/snare9.mp3";
+    this.currentHihat = "./sounds/hihat4.mp3";
+    this.currentClap = "./sounds/clap1.mp3";
+    this.currentEffect = "./sounds/effect7.mp3";
+    this.selectS = document.querySelectorAll('select');
     this.playBtn = document.querySelector(".play");
     this.index = 0;
-    this.bpm = 100;
+    this.bpm = 200;
+    this.play = null;
   }
 
   // repeating the pads in a loop.  reminder of 10 will make the step start from 0 to 9
@@ -56,23 +63,92 @@ class Drum {
   // this keyword reffer to this object here
   repeat() {
     let step = this.index % 10;
-    const activeBars = document.querySelectorAll(`b${step}`);
+    const activeBars = document.querySelectorAll(`.b${step}`);
+
+    // appending an animation style to the current pads and then remove them after  finishing animation by an eventlistener to repeat again
+    //
+    activeBars.forEach((pad) => {
+      pad.style.animation = `boomBoom 0.25s alternate ease-in-out 2`;
+
+
+      if(pad.classList.contains("active")){
+
+        if(pad.classList.contains('kick-pad')){
+          this.kickAudio.currentTime = 0;
+          this.kickAudio.play();
+        }
+        if(pad.classList.contains('snare-pad')){
+          this.snareAudio.currentTime = 0;
+          this.snareAudio.play();
+        }
+        if(pad.classList.contains('hihat-pad')){
+          this.hihatAudio.currentTime = 0;
+          this.hihatAudio.play();
+        }
+        if(pad.classList.contains('clap-pad')){
+          this.clapAudio.currentTime = 0;
+          this.clapAudio.play();
+        }
+        if(pad.classList.contains('effect-pad')){
+          this.effectAudio.currentTime = 0;
+          this.effectAudio.play();
+        }
+
+      }
+    });
     this.index++;
   }
+
+
+  
 
   // start the loop by an interval. bpm will handle the speed of the loop
   // the arrow function here allow us to use this keyword reffering to the current object
   // this.index will reffer to the times of the loop running. so by deviding to 10 the reminder will looping between 0 - 9
   start() {
     const interval = (60 / this.bpm) * 1000;
-    setInterval(() => {
-      this.repeat();
-    }, interval);
+
+    //check if the track now is playing or not to avoid running multiple intervals by clicking on the start btn
+    if (!this.play) {
+      this.playBtn.innerText = "Stop";
+
+      this.play = setInterval(() => {
+        this.repeat();
+      }, interval);
+    } else {
+      this.playBtn.innerText = "Play";
+      clearInterval(this.play)
+      this.play = null;
+
+    }
   }
 
   // toggle the class active to the pads after clicking on them
   activePad() {
     this.classList.toggle("active");
+  }
+
+  changeSound(e){
+    const selectionName = e.target.name;
+    const selectionValue = e.target.value;
+
+    switch(selectionName){
+      case "kick-select":
+      this.kickAudio.src = selectionValue;
+      break;
+      case "snare-select":
+      this.snareAudio.src = selectionValue;
+      break;
+      case "hihat-select":
+      this.hihatAudio.src = selectionValue;
+      break;
+      case "clap-select":
+      this.clapAudio.src = selectionValue;
+      break;
+      case "effect-select":
+      this.effectAudio.src = selectionValue;
+      break;
+    }
   }
 }
 
@@ -82,6 +158,9 @@ const drum = new Drum();
 //add event listener to every pad that had been clicked and make them active
 drum.pads.forEach((pad) => {
   pad.addEventListener("click", drum.activePad);
+  pad.addEventListener('animationend', function(){
+    this.style.animation = '';
+  })
 });
 
 // start the loop by clicking on the play button
@@ -90,3 +169,9 @@ drum.pads.forEach((pad) => {
 drum.playBtn.addEventListener("click", function () {
   drum.start();
 });
+
+drum.selectS.forEach(select => {
+  select.addEventListener('change', function(e){
+    drum.changeSound(e);
+  });
+})

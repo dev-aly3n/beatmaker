@@ -241,6 +241,15 @@ h2 {
 select {
     @apply px-2 py-2 font-semibold w-40 bg-gray-50 border;
 }
+
+@keyframes boomBoom {
+    from{
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
 }
 
 /* .{
