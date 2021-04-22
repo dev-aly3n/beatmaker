@@ -56,6 +56,8 @@ class Drum {
     this.index = 0;
     this.bpm = 200;
     this.play = null;
+    this.muteBtnS = document.querySelectorAll('.mute');
+    this.tempoSlider = document.querySelector('.tempo-slider');
   }
 
   // repeating the pads in a loop.  reminder of 10 will make the step start from 0 to 9
@@ -71,25 +73,25 @@ class Drum {
       pad.style.animation = `boomBoom 0.25s alternate ease-in-out 2`;
 
 
-      if(pad.classList.contains("active")){
+      if (pad.classList.contains("active")) {
 
-        if(pad.classList.contains('kick-pad')){
+        if (pad.classList.contains('kick-pad')) {
           this.kickAudio.currentTime = 0;
           this.kickAudio.play();
         }
-        if(pad.classList.contains('snare-pad')){
+        if (pad.classList.contains('snare-pad')) {
           this.snareAudio.currentTime = 0;
           this.snareAudio.play();
         }
-        if(pad.classList.contains('hihat-pad')){
+        if (pad.classList.contains('hihat-pad')) {
           this.hihatAudio.currentTime = 0;
           this.hihatAudio.play();
         }
-        if(pad.classList.contains('clap-pad')){
+        if (pad.classList.contains('clap-pad')) {
           this.clapAudio.currentTime = 0;
           this.clapAudio.play();
         }
-        if(pad.classList.contains('effect-pad')){
+        if (pad.classList.contains('effect-pad')) {
           this.effectAudio.currentTime = 0;
           this.effectAudio.play();
         }
@@ -100,7 +102,7 @@ class Drum {
   }
 
 
-  
+
 
   // start the loop by an interval. bpm will handle the speed of the loop
   // the arrow function here allow us to use this keyword reffering to the current object
@@ -111,12 +113,13 @@ class Drum {
     //check if the track now is playing or not to avoid running multiple intervals by clicking on the start btn
     if (!this.play) {
       this.playBtn.innerText = "Stop";
-
+      this.playBtn.classList.add('active');
       this.play = setInterval(() => {
         this.repeat();
       }, interval);
     } else {
       this.playBtn.innerText = "Play";
+      this.playBtn.classList.remove('active');
       clearInterval(this.play)
       this.play = null;
 
@@ -128,28 +131,88 @@ class Drum {
     this.classList.toggle("active");
   }
 
-  changeSound(e){
+  changeSound(e) {
     const selectionName = e.target.name;
     const selectionValue = e.target.value;
 
-    switch(selectionName){
+    switch (selectionName) {
       case "kick-select":
-      this.kickAudio.src = selectionValue;
-      break;
+        this.kickAudio.src = selectionValue;
+        break;
       case "snare-select":
-      this.snareAudio.src = selectionValue;
-      break;
+        this.snareAudio.src = selectionValue;
+        break;
       case "hihat-select":
-      this.hihatAudio.src = selectionValue;
-      break;
+        this.hihatAudio.src = selectionValue;
+        break;
       case "clap-select":
-      this.clapAudio.src = selectionValue;
-      break;
+        this.clapAudio.src = selectionValue;
+        break;
       case "effect-select":
-      this.effectAudio.src = selectionValue;
-      break;
+        this.effectAudio.src = selectionValue;
+        break;
     }
   }
+
+  mute(e) {
+    const muteName = e.target.getAttribute('data-track');
+    const muteClass = e.target.classList;
+    muteClass.toggle('active');
+    if (muteClass.contains('active')) {
+
+      switch (muteName) {
+        case "kick":
+          this.kickAudio.volume = 0;
+          break;
+        case "snare":
+          this.snareAudio.volume = 0;
+          break;
+        case "hihat":
+          this.hihatAudio.volume = 0;
+          break;
+        case "clap":
+          this.clapAudio.volume = 0;
+          break;
+        case "effect":
+          this.effectAudio.volume = 0;
+          break;
+      }
+    } else {
+      switch (muteName) {
+        case "kick":
+          this.kickAudio.volume = 1;
+          break;
+        case "snare":
+          this.snareAudio.volume = 1;
+          break;
+        case "hihat":
+          this.hihatAudio.volume = 1;
+          break;
+        case "clap":
+          this.clapAudio.volume = 1;
+          break;
+        case "effect":
+          this.effectAudio.volume = 1;
+          break;
+    }
+
+  }
+}
+
+changeTempo(e){
+  document.querySelector('.tempo-num').innerText = e.target.value;
+}
+
+updateTempo(e){
+  this.bpm = e.target.value;
+  clearInterval(this.play);
+  this.play = null;
+  const playBtn = document.querySelector('.play');
+  if(playBtn.classList.contains('active')){
+    this.start();
+  }
+
+}
 }
 
 // making a new object of the class Drum
@@ -158,7 +221,7 @@ const drum = new Drum();
 //add event listener to every pad that had been clicked and make them active
 drum.pads.forEach((pad) => {
   pad.addEventListener("click", drum.activePad);
-  pad.addEventListener('animationend', function(){
+  pad.addEventListener('animationend', function () {
     this.style.animation = '';
   })
 });
@@ -171,7 +234,21 @@ drum.playBtn.addEventListener("click", function () {
 });
 
 drum.selectS.forEach(select => {
-  select.addEventListener('change', function(e){
+  select.addEventListener('change', function (e) {
     drum.changeSound(e);
   });
-})
+});
+
+drum.muteBtnS.forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    drum.mute(e);
+  });
+});
+
+drum.tempoSlider.addEventListener('input', function(e){
+  drum.changeTempo(e);
+});
+
+drum.tempoSlider.addEventListener('change', function(e){
+  drum.updateTempo(e);
+});

@@ -47,7 +47,7 @@
             <div class="kick-track">
                 <div class="controls">
                     <h2>Kick</h2>
-                    <button class="mute kick-volume" data-track="0">
+                    <button class="mute kick-volume" data-track="kick">
                         <i class="fas fa-volume-mute"></i>
                     </button>
                     <select name="kick-select" id="kick-select">
@@ -77,7 +77,7 @@
             <div class="snare-track">
                 <div class="controls">
                     <h2>Snare</h2>
-                    <button class="mute snare-volume" data-track="0">
+                    <button class="mute snare-volume" data-track="snare">
                         <i class="fas fa-volume-mute"></i>
                     </button>
                     <select name="snare-select" id="snare-select">
@@ -108,7 +108,7 @@
             <div class="hihat-track">
                 <div class="controls">
                     <h2>Hihat</h2>
-                    <button class="mute hihat-volume" data-track="0">
+                    <button class="mute hihat-volume" data-track="hihat">
                         <i class="fas fa-volume-mute"></i>
                     </button>
                     <select name="hihat-select" id="hihat-select">
@@ -139,7 +139,7 @@
             <div class="clap-track">
                 <div class="controls">
                     <h2>Clap</h2>
-                    <button class="mute clap-volume" data-track="0">
+                    <button class="mute clap-volume" data-track='clap'>
                         <i class="fas fa-volume-mute"></i>
                     </button>
                     <select name="clap-select" id="clap-select">
@@ -167,7 +167,7 @@
             <div class="effect-track">
                 <div class="controls">
                     <h2>Effect</h2>
-                    <button class="mute effect-volume" data-track="0">
+                    <button class="mute effect-volume" data-track="effect">
                         <i class="fas fa-volume-mute"></i>
                     </button>
                     <select name="effect-select" id="effect-select">
@@ -195,6 +195,10 @@
                     </div>
             </div>
             <button class="play">Play</button>
+            <div class="tempo">
+                <input type="range" class="tempo-slider" min="50" max="300" value="150">
+                <p> Tempo: <span class="tempo-num">150</span></p>
+            </div>
         </div>
 
         <audio class="kick-sound" src="./sounds/kick8.mp3"></audio>
@@ -213,5 +217,4 @@
         crossorigin="anonymous"></script>
     <script src="./app.js"></script>
 </body>
-
 </html>
