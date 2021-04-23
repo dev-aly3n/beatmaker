@@ -68,11 +68,11 @@ class Drum {
     const activeBars = document.querySelectorAll(`.b${step}`);
 
     // appending an animation style to the current pads and then remove them after  finishing animation by an eventlistener to repeat again
-    //
+    
     activeBars.forEach((pad) => {
       pad.style.animation = `boomBoom 0.25s alternate ease-in-out 2`;
 
-
+      // fixing the issue with repeating the song in every pad
       if (pad.classList.contains("active")) {
 
         if (pad.classList.contains('kick-pad')) {
@@ -95,13 +95,10 @@ class Drum {
           this.effectAudio.currentTime = 0;
           this.effectAudio.play();
         }
-
       }
     });
     this.index++;
   }
-
-
 
 
   // start the loop by an interval. bpm will handle the speed of the loop
@@ -111,6 +108,7 @@ class Drum {
     const interval = (60 / this.bpm) * 1000;
 
     //check if the track now is playing or not to avoid running multiple intervals by clicking on the start btn
+    //adding class active that can be usefull in when we want to check if the tracks are playing or not
     if (!this.play) {
       this.playBtn.innerText = "Stop";
       this.playBtn.classList.add('active');
@@ -131,6 +129,7 @@ class Drum {
     this.classList.toggle("active");
   }
 
+  //add an eventLisener to the selects and change the songs src
   changeSound(e) {
     const selectionName = e.target.name;
     const selectionValue = e.target.value;
@@ -154,6 +153,8 @@ class Drum {
     }
   }
 
+  // muting a song when it isn't mute and unmuting them
+  //and add toggle the class active to the mute btn
   mute(e) {
     const muteName = e.target.getAttribute('data-track');
     const muteClass = e.target.classList;
@@ -195,14 +196,16 @@ class Drum {
           this.effectAudio.volume = 1;
           break;
     }
-
   }
 }
 
+//change the bpm of the track by a slider
+//change the text parameter of the tempo in the same time
 changeTempo(e){
   document.querySelector('.tempo-num').innerText = e.target.value;
 }
-
+// change the actual bpm after that user changed the slider
+// we reset all the parameter and then check if the song is now playing? if yes then we start it with new bpm and else we do nothing
 updateTempo(e){
   this.bpm = e.target.value;
   clearInterval(this.play);
@@ -211,7 +214,6 @@ updateTempo(e){
   if(playBtn.classList.contains('active')){
     this.start();
   }
-
 }
 }
 
@@ -233,22 +235,26 @@ drum.playBtn.addEventListener("click", function () {
   drum.start();
 });
 
+//changing the sounds when the user change it trough the select options
 drum.selectS.forEach(select => {
   select.addEventListener('change', function (e) {
     drum.changeSound(e);
   });
 });
 
+//muting the track when user clicked on the mute btn
 drum.muteBtnS.forEach(btn => {
   btn.addEventListener('click', function (e) {
     drum.mute(e);
   });
 });
 
+//changing the text of tempo slider in every moment
 drum.tempoSlider.addEventListener('input', function(e){
   drum.changeTempo(e);
 });
 
+//changing the bpm when the user changed the tempo slider
 drum.tempoSlider.addEventListener('change', function(e){
   drum.updateTempo(e);
 });
