@@ -58,7 +58,14 @@ class Drum {
     this.play = null;
     this.muteBtnS = document.querySelectorAll(".mute");
     this.tempoSlider = document.querySelector(".tempo-slider");
-    this.randomizeBtn = document.querySelectorAll('.randomize');
+    this.randomizeBtnS = document.querySelectorAll('.randomize');
+    this.randomizeAllBtn = document.querySelector('.randomize-all');
+  }
+
+   // return true/false doe to the random number is odd or not
+   random(x) {
+    return (Math.random() < x);
+    // return (Math.random()*1000000000).toFixed(0) %2 ===0;
   }
 
   // repeating the pads in a loop.  reminder of 10 will make the step start from 0 to 9
@@ -213,28 +220,68 @@ class Drum {
     }
   }
 
-  randomizer(e){
+
+  // by cliking the randomize btn at first we have to undrstand which track randomized that we can know it by data-track
+  //then we will get all pads of thath track and make it randomize
+  randomizer(e) {
     const randomName = e.target.getAttribute("data-track");
     const randomPad = document.querySelectorAll(`.${randomName}-pad`);
+    //at first we have to remove all the active classes from the track or no after 2 or 3 times all of pads will be active
     randomPad.forEach(pad => pad.classList.remove('active'));
-    randomPad.forEach(el => {
-      if (this.random()){
-        el.classList.add('active');
+    //then we can randomize our pads by a very ugly way. when a pad is active, the next pad have a less chance to be active
+    //by this approach we can handle over-active pads
+    randomPad.forEach((el, index) => {
+      if (index >= 1) {
+        if (randomPad[index - 1].classList.contains('active')) {
+          if (this.random(0.2)) {
+            el.classList.add('active');
+          }
+        } else {
+          if (this.random(0.5)) {
+            el.classList.add('active');
+          }
+        }
+      } else {
+        if (this.random()) {
+          el.classList.add('active');
+        }
       }
     });
-
   }
 
-  random(){
-return (Math.random() < 0.5);
+
+  // randomize all pads. just like the randomizer()
+  randomizeAll(){
+    const randomPad = document.querySelectorAll('.pad');
+    //at first we have to remove all the active classes from the track or no after 2 or 3 times all of pads will be active
+    randomPad.forEach(pad => pad.classList.remove('active'));
+    //then we can randomize our pads by a very ugly way. when a pad is active, the next pad have a less chance to be active
+    //by this approach we can handle over-active pads
+    randomPad.forEach((el, index) => {
+      if (index >= 1) {
+        if (randomPad[index - 1].classList.contains('active')) {
+          if (this.random(0.2)) {
+            el.classList.add('active');
+          }
+        } else {
+          if (this.random(0.5)) {
+            el.classList.add('active');
+          }
+        }
+      } else {
+        if (this.random()) {
+          el.classList.add('active');
+        }
+      }
+    });
   }
+
+
 }
-
 
 ///////////////////////////
 //////////////////////
 /////////////////
-
 
 
 // making a new object of the class Drum
@@ -279,8 +326,14 @@ drum.tempoSlider.addEventListener("change", function (e) {
   drum.updateTempo(e);
 });
 
-drum.randomizeBtn.forEach(btn => {
-btn.addEventListener('click', function(e){
-  drum.randomizer(e);
-})
+//randomize every track that had been clicked on the randomize btn
+drum.randomizeBtnS.forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    drum.randomizer(e);
+  })
+});
+
+//randomize all pads
+drum.randomizeAllBtn.addEventListener('click', function(){
+  drum.randomizeAll();
 });
