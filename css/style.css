@@ -234,7 +234,7 @@ h2 {
 
 .controls button {
     transition: all 0.5s ease;
-    @apply px-3 py-2 mx-2 border-none bg-gray-600 text-white text-base cursor-pointer;
+    @apply px-3 py-2 mx-2 border-none bg-gray-600 text-white text-base cursor-pointer active:bg-gray-900;
 }
 
 .play {
@@ -242,7 +242,7 @@ h2 {
 }
 
 select {
-    @apply px-2 py-2 font-semibold w-40 bg-gray-50 border;
+    @apply px-2 py-2 font-semibold w-24 bg-gray-50 border;
 }
 
 .mute.active {
