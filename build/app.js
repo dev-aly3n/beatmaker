@@ -60,6 +60,8 @@ class Drum {
     this.tempoSlider = document.querySelector(".tempo-slider");
     this.randomizeBtnS = document.querySelectorAll('.randomize');
     this.randomizeAllBtn = document.querySelector('.randomize-all');
+    this.increaseBtn = document.querySelector(".increase");
+    this.decreaseBtn = document.querySelector(".decrease");
   }
 
    // return true/false doe to the random number is odd or not
@@ -72,7 +74,9 @@ class Drum {
   //and active bars will show the column of bars that they currently active
   // this keyword reffer to this object here
   repeat() {
-    let step = this.index % 10;
+    const padNum = document.querySelectorAll('.kick-pad').length;
+
+    let step = this.index % padNum;
     const activeBars = document.querySelectorAll(`.b${step}`);
 
     // appending an animation style to the current pads and then remove them after  finishing animation by an eventlistener to repeat again
@@ -277,8 +281,23 @@ class Drum {
   }
 
 
+  increasePads(){
+    let padNumber = document.querySelectorAll('.kick-pad').length;
+    let trackNumber = document.querySelectorAll('.track');
+    trackNumber.forEach(track =>{
+      let dataTrack = track.getAttribute('data-track');
+      let newPads = document.createElement('div');
+      newPads.classList = (`pad ${dataTrack}-pad b${padNumber}`);
+      document.querySelector(`.${dataTrack}`).appendChild(newPads);
+    });
+  }
 }
 
+
+
+//////////////////////////////////////////
+/////////////////////////////////////
+////////////////////////////////
 ///////////////////////////
 //////////////////////
 /////////////////
@@ -287,7 +306,22 @@ class Drum {
 // making a new object of the class Drum
 const drum = new Drum();
 
+
+
+drum.increaseBtn.addEventListener('click' , function(){
+drum.increasePads();
+//update drum.pads and call the function again
+drum.pads = document.querySelectorAll('.pad');
+drum.pads.forEach((pad) => {
+  pad.addEventListener("click", drum.activePad);
+  pad.addEventListener("animationend", function () {
+    this.style.animation = "";
+  });
+});
+});
+
 //add event listener to every pad that had been clicked and make them active
+
 drum.pads.forEach((pad) => {
   pad.addEventListener("click", drum.activePad);
   pad.addEventListener("animationend", function () {
@@ -337,3 +371,4 @@ drum.randomizeBtnS.forEach(btn => {
 drum.randomizeAllBtn.addEventListener('click', function(){
   drum.randomizeAll();
 });
+

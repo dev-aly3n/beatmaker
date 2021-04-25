@@ -64,7 +64,7 @@
                         <option value="./sounds/kick8.mp3" selected>kick8</option>
                     </select>
                     </div>
-                    <div class="kick">
+                    <div class="kick track" data-track="kick">
                         <div class="pad kick-pad b0"></div>
                         <div class="pad kick-pad b1"></div>
                         <div class="pad kick-pad b2"></div>
@@ -98,7 +98,7 @@
                         <option value="./sounds/snare9.mp3" selected>snare9</option>
                     </select>
                     </div>
-                    <div class="snare">
+                    <div class="snare track" data-track="snare">
                         <div class="pad snare-pad b0"></div>
                         <div class="pad snare-pad b1"></div>
                         <div class="pad snare-pad b2"></div>
@@ -132,7 +132,7 @@
                         <option value="./sounds/hihat9.mp3">hihat9</option>
                     </select>
                     </div>
-                    <div class="hihat">
+                    <div class="hihat track" data-track="hihat">
                         <div class="pad hihat-pad b0"></div>
                         <div class="pad hihat-pad b1"></div>
                         <div class="pad hihat-pad b2"></div>
@@ -162,7 +162,7 @@
                         <option value="./sounds/clap5.mp3">clap5</option>
                     </select>
                     </div>
-                    <div class="clap">
+                    <div class="clap track" data-track="clap">
                         <div class="pad clap-pad b0"></div>
                         <div class="pad clap-pad b1"></div>
                         <div class="pad clap-pad b2"></div>
@@ -196,7 +196,7 @@
 
 
                     </div>
-                    <div class="effect">
+                    <div class="effect track" data-track="effect">
                         <div class="pad effect-pad b0"></div>
                         <div class="pad effect-pad b1"></div>
                         <div class="pad effect-pad b2"></div>
@@ -212,6 +212,8 @@
             <div class="general-controls">
             <button class="play">Play</button>
             <button class="randomize-all"><i class="fas fa-random"></i></button>
+            <button class="decrease">-1</button>
+            <button class="increase">+2</button>
         </div>
             <div class="tempo">
                 <input type="range" class="tempo-slider" min="50" max="300" value="150">
