@@ -238,9 +238,19 @@ h2 {
     shadow-2xl active:shadow-inner;
 }
 
-.general-controls button {
+.general-controls .play , .randomize-all{
     @apply bg-gray-600 text-white py-4 px-8 mt-6 text-2xl border-none active:bg-gray-900
     shadow-2xl active:shadow-inner;
+}
+
+.general-controls .increase {
+    @apply bg-green-400 text-white py-2 w-12 text-2xl rounded-full border-none active:bg-green-900
+    shadow-2xl active:shadow-inner ring-1 ring-green-600 focus:outline-none focus:ring-2 focus:ring-green-600;
+}
+ 
+.general-controls .decrease {
+    @apply bg-yellow-500 text-white ml-4 py-2 w-12 text-2xl rounded-full border-none active:bg-yellow-900
+    shadow-2xl active:shadow-inner ring-1 ring-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-600;
 }
 
 select {

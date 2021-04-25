@@ -280,10 +280,12 @@ class Drum {
     });
   }
 
-
-  increasePads(){
+//increasing pads one by one . at first we get number of pads in each row and then append a new pad to them
+//to the point the new pad could toggle the active class, we have to call the active method in this method again
+  increasePad(){
     let padNumber = document.querySelectorAll('.kick-pad').length;
     let trackNumber = document.querySelectorAll('.track');
+    if(padNumber <= 15){
     trackNumber.forEach(track =>{
       let dataTrack = track.getAttribute('data-track');
       let newPads = document.createElement('div');
@@ -291,6 +293,18 @@ class Drum {
       document.querySelector(`.${dataTrack}`).appendChild(newPads);
     });
   }
+  }
+
+decreasePad(){
+  let padNumber = document.querySelectorAll('.kick-pad').length;
+  let trackNumber = document.querySelectorAll('.track');
+
+  if(padNumber >= 5){
+    trackNumber.forEach(track =>{
+    track.children[padNumber-1].remove();
+    });
+  }
+}
 }
 
 
@@ -309,7 +323,7 @@ const drum = new Drum();
 
 
 drum.increaseBtn.addEventListener('click' , function(){
-drum.increasePads();
+drum.increasePad();
 //update drum.pads and call the function again
 drum.pads = document.querySelectorAll('.pad');
 drum.pads.forEach((pad) => {
@@ -318,6 +332,11 @@ drum.pads.forEach((pad) => {
     this.style.animation = "";
   });
 });
+});
+
+
+drum.decreaseBtn.addEventListener('click' , function(){
+  drum.decreasePad();
 });
 
 //add event listener to every pad that had been clicked and make them active
