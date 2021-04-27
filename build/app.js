@@ -58,15 +58,16 @@ class Drum {
     this.play = null;
     this.muteBtnS = document.querySelectorAll(".mute");
     this.tempoSlider = document.querySelector(".tempo-slider");
-    this.randomizeBtnS = document.querySelectorAll('.randomize');
-    this.randomizeAllBtn = document.querySelector('.randomize-all');
+    this.randomizeBtnS = document.querySelectorAll(".randomize");
+    this.randomizeAllBtn = document.querySelector(".randomize-all");
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
+    this.saveBtn = document.querySelector('.save');
   }
 
-   // return true/false doe to the random number is odd or not
-   random(x) {
-    return (Math.random() < x);
+  // return true/false doe to the random number is odd or not
+  random(x) {
+    return Math.random() < x;
     // return (Math.random()*1000000000).toFixed(0) %2 ===0;
   }
 
@@ -74,7 +75,7 @@ class Drum {
   //and active bars will show the column of bars that they currently active
   // this keyword reffer to this object here
   repeat() {
-    const padNum = document.querySelectorAll('.kick-pad').length;
+    const padNum = document.querySelectorAll(".kick-pad").length;
 
     let step = this.index % padNum;
     const activeBars = document.querySelectorAll(`.b${step}`);
@@ -224,90 +225,89 @@ class Drum {
     }
   }
 
-
   // by cliking the randomize btn at first we have to undrstand which track randomized that we can know it by data-track
   //then we will get all pads of thath track and make it randomize
   randomizer(e) {
     const randomName = e.target.getAttribute("data-track");
     const randomPad = document.querySelectorAll(`.${randomName}-pad`);
     //at first we have to remove all the active classes from the track or no after 2 or 3 times all of pads will be active
-    randomPad.forEach(pad => pad.classList.remove('active'));
+    randomPad.forEach((pad) => pad.classList.remove("active"));
     //then we can randomize our pads by a very ugly way. when a pad is active, the next pad have a less chance to be active
     //by this approach we can handle over-active pads
     randomPad.forEach((el, index) => {
       if (index >= 1) {
-        if (randomPad[index - 1].classList.contains('active')) {
+        if (randomPad[index - 1].classList.contains("active")) {
           if (this.random(0.2)) {
-            el.classList.add('active');
+            el.classList.add("active");
           }
         } else {
           if (this.random(0.5)) {
-            el.classList.add('active');
+            el.classList.add("active");
           }
         }
       } else {
         if (this.random()) {
-          el.classList.add('active');
+          el.classList.add("active");
         }
       }
     });
   }
-
 
   // randomize all pads. just like the randomizer()
-  randomizeAll(){
-    const randomPad = document.querySelectorAll('.pad');
+  randomizeAll() {
+    const randomPad = document.querySelectorAll(".pad");
     //at first we have to remove all the active classes from the track or no after 2 or 3 times all of pads will be active
-    randomPad.forEach(pad => pad.classList.remove('active'));
+    randomPad.forEach((pad) => pad.classList.remove("active"));
     //then we can randomize our pads by a very ugly way. when a pad is active, the next pad have a less chance to be active
     //by this approach we can handle over-active pads
     randomPad.forEach((el, index) => {
       if (index >= 1) {
-        if (randomPad[index - 1].classList.contains('active')) {
+        if (randomPad[index - 1].classList.contains("active")) {
           if (this.random(0.2)) {
-            el.classList.add('active');
+            el.classList.add("active");
           }
         } else {
           if (this.random(0.5)) {
-            el.classList.add('active');
+            el.classList.add("active");
           }
         }
       } else {
         if (this.random()) {
-          el.classList.add('active');
+          el.classList.add("active");
         }
       }
     });
   }
 
-//increasing pads one by one . at first we get number of pads in each row and then append a new pad to them
-//to the point the new pad could toggle the active class, we have to call the active method in this method again
-  increasePad(){
-    let padNumber = document.querySelectorAll('.kick-pad').length;
-    let trackNumber = document.querySelectorAll('.track');
-    if(padNumber <= 15){
-    trackNumber.forEach(track =>{
-      let dataTrack = track.getAttribute('data-track');
-      let newPads = document.createElement('div');
-      newPads.classList = (`pad ${dataTrack}-pad b${padNumber}`);
-      document.querySelector(`.${dataTrack}`).appendChild(newPads);
-    });
-  }
+  //increasing pads one by one . at first we get number of pads in each row and then append a new pad to them
+  //to the point the new pad could toggle the active class, we have to call the active method in this method again
+  increasePad() {
+    let padNumber = document.querySelectorAll(".kick-pad").length;
+    let trackNumber = document.querySelectorAll(".track");
+    if (padNumber <= 15) {
+      trackNumber.forEach((track) => {
+        let dataTrack = track.getAttribute("data-track");
+        let newPads = document.createElement("div");
+        newPads.classList = `pad ${dataTrack}-pad b${padNumber}`;
+        document.querySelector(`.${dataTrack}`).appendChild(newPads);
+      });
+    }
   }
 
-decreasePad(){
-  let padNumber = document.querySelectorAll('.kick-pad').length;
-  let trackNumber = document.querySelectorAll('.track');
+  //just like the increasePad() method but we remove the last Pad every time
+  decreasePad() {
+    let padNumber = document.querySelectorAll(".kick-pad").length;
+    let trackNumber = document.querySelectorAll(".track");
 
-  if(padNumber >= 5){
-    trackNumber.forEach(track =>{
-    track.children[padNumber-1].remove();
-    });
+    if (padNumber >= 5) {
+      trackNumber.forEach((track) => {
+        track.children[padNumber - 1].remove();
+      });
+    }
   }
+
+  //saving the current track
 }
-}
-
-
 
 //////////////////////////////////////////
 /////////////////////////////////////
@@ -316,26 +316,24 @@ decreasePad(){
 //////////////////////
 /////////////////
 
-
 // making a new object of the class Drum
 const drum = new Drum();
 
-
-
-drum.increaseBtn.addEventListener('click' , function(){
-drum.increasePad();
-//update drum.pads and call the function again
-drum.pads = document.querySelectorAll('.pad');
-drum.pads.forEach((pad) => {
-  pad.addEventListener("click", drum.activePad);
-  pad.addEventListener("animationend", function () {
-    this.style.animation = "";
+//increasing the pads by click
+drum.increaseBtn.addEventListener("click", function () {
+  drum.increasePad();
+  //update drum.pads and call the activePad eventLisener again
+  drum.pads = document.querySelectorAll(".pad");
+  drum.pads.forEach((pad) => {
+    pad.addEventListener("click", drum.activePad);
+    pad.addEventListener("animationend", function () {
+      this.style.animation = "";
+    });
   });
 });
-});
 
-
-drum.decreaseBtn.addEventListener('click' , function(){
+// just like the increase btn
+drum.decreaseBtn.addEventListener("click", function () {
   drum.decreasePad();
 });
 
@@ -380,14 +378,18 @@ drum.tempoSlider.addEventListener("change", function (e) {
 });
 
 //randomize every track that had been clicked on the randomize btn
-drum.randomizeBtnS.forEach(btn => {
-  btn.addEventListener('click', function (e) {
+drum.randomizeBtnS.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
     drum.randomizer(e);
-  })
+  });
 });
 
 //randomize all pads
-drum.randomizeAllBtn.addEventListener('click', function(){
+drum.randomizeAllBtn.addEventListener("click", function () {
   drum.randomizeAll();
 });
 
+drum.saveBtn.addEventListener('click', function(){
+drum.save();
+
+});
