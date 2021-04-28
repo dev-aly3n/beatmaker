@@ -62,7 +62,7 @@ class Drum {
     this.randomizeAllBtn = document.querySelector(".randomize-all");
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
-    this.saveBtn = document.querySelector('.save');
+    this.saveBtn = document.querySelector(".save");
   }
 
   // return true/false doe to the random number is odd or not
@@ -307,6 +307,7 @@ class Drum {
   }
 
   //saving the current track
+  save() {}
 }
 
 //////////////////////////////////////////
@@ -389,7 +390,6 @@ drum.randomizeAllBtn.addEventListener("click", function () {
   drum.randomizeAll();
 });
 
-drum.saveBtn.addEventListener('click', function(){
-drum.save();
-
+drum.saveBtn.addEventListener("click", function () {
+  drum.save();
 });

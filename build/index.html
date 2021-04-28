@@ -1,242 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Jockey+One&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Jockey+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Aly3n Beat Maker</title>
-</head>
+  </head>
 
-<body>
-
-
+  <body>
     <!-- top menu navbar -->
     <section id="top-menu">
-        <nav id="navigation" class="navigation">
-            <div class="logo flex justify-around items-center">
-                <span class="float-left  mx-10 cursor-pointer">
-                    <i class="fab fa-napster fa-lg text-blue-200"
-                    ></i>
-                </span>
-                <h1 class="logo">Aly3n Beat Maker</h1>
-            </div>
-            <ul class="nav-links navigation">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Blog</a> </li>
-                <li><a href="#">Top pieces</a> </li>
-                <li><a href="#">Profile</a> </li>
-                <li><a href="#">Share</a> </li>
-            </ul>
-            <div class="navigation burger cursor-pointer">
-                <div class="navigation line1"> </div>
-                <div class="navigation line2"> </div>
-                <div class="navigation line3"> </div>
-            </div>
-        </nav>
+      <nav id="navigation" class="navigation">
+        <div class="logo flex justify-around items-center">
+          <span class="float-left mx-10 cursor-pointer">
+            <i class="fab fa-napster fa-lg text-blue-200"></i>
+          </span>
+          <h1 class="logo">Aly3n Beat Maker</h1>
+        </div>
+        <ul class="nav-links navigation">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Top pieces</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Share</a></li>
+        </ul>
+        <div class="navigation burger cursor-pointer">
+          <div class="navigation line1"></div>
+          <div class="navigation line2"></div>
+          <div class="navigation line3"></div>
+        </div>
+      </nav>
     </section>
-
-
 
     <!-- beat app section -->
     <section id="beat-section">
-        <div class="beat-container">
-            <div class="kick-track">
-                <div class="controls">
-                    <h2>Kick</h2>
-                    <button class="mute kick-volume" data-track="kick">
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
-                    <button class="randomize kick-randomize" data-track="kick">
-                        <i class="fas fa-random"></i>
-                    </button>
-                    <select name="kick-select" id="kick-select">
-                        <option value="./sounds/kick1.mp3">kick1</option>
-                        <option value="./sounds/kick2.mp3">kick2</option>
-                        <option value="./sounds/kick3.mp3">kick3</option>
-                        <option value="./sounds/kick4.mp3">kick4</option>
-                        <option value="./sounds/kick5.mp3">kick5</option>
-                        <option value="./sounds/kick6.mp3">kick6</option>
-                        <option value="./sounds/kick7.mp3">kick7</option>
-                        <option value="./sounds/kick8.mp3" selected>kick8</option>
-                    </select>
-                    </div>
-                    <div class="kick track" data-track="kick">
-                        <div class="pad kick-pad b0"></div>
-                        <div class="pad kick-pad b1"></div>
-                        <div class="pad kick-pad b2"></div>
-                        <div class="pad kick-pad b3"></div>
-                        <div class="pad kick-pad b4"></div>
-                        <div class="pad kick-pad b5"></div>
-                        <div class="pad kick-pad b6"></div>
-                        <div class="pad kick-pad b7"></div>
-                        <div class="pad kick-pad b8"></div>
-                        <div class="pad kick-pad b9"></div>
-                    </div>
-            </div>
-            <div class="snare-track">
-                <div class="controls">
-                    <h2>Snare</h2>
-                    <button class="mute snare-volume" data-track="snare">
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
-                    <button class="randomize snare-randomize" data-track="snare">
-                        <i class="fas fa-random"></i>
-                    </button>
-                    <select name="snare-select" id="snare-select">
-                        <option value="./sounds/snare1.mp3">snare1</option>
-                        <option value="./sounds/snare2.mp3">snare2</option>
-                        <option value="./sounds/snare3.mp3">snare3</option>
-                        <option value="./sounds/snare4.mp3">snare4</option>
-                        <option value="./sounds/snare5.mp3">snare5</option>
-                        <option value="./sounds/snare6.mp3">snare6</option>
-                        <option value="./sounds/snare7.mp3">snare7</option>
-                        <option value="./sounds/snare8.mp3">snare8</option>
-                        <option value="./sounds/snare9.mp3" selected>snare9</option>
-                    </select>
-                    </div>
-                    <div class="snare track" data-track="snare">
-                        <div class="pad snare-pad b0"></div>
-                        <div class="pad snare-pad b1"></div>
-                        <div class="pad snare-pad b2"></div>
-                        <div class="pad snare-pad b3"></div>
-                        <div class="pad snare-pad b4"></div>
-                        <div class="pad snare-pad b5"></div>
-                        <div class="pad snare-pad b6"></div>
-                        <div class="pad snare-pad b7"></div>
-                        <div class="pad snare-pad b8"></div>
-                        <div class="pad snare-pad b9"></div>
-                    </div>
-            </div>
-            <div class="hihat-track">
-                <div class="controls">
-                    <h2>Hihat</h2>
-                    <button class="mute hihat-volume" data-track="hihat">
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
-                    <button class="randomize hihat-randomize" data-track="hihat">
-                        <i class="fas fa-random"></i>
-                    </button>
-                    <select name="hihat-select" id="hihat-select">
-                        <option value="./sounds/hihat1.mp3">hihat1</option>
-                        <option value="./sounds/hihat2.mp3">hihat2</option>
-                        <option value="./sounds/hihat3.mp3">hihat3</option>
-                        <option value="./sounds/hihat4.mp3" selected>hihat4</option>
-                        <option value="./sounds/hihat5.mp3">hihat5</option>
-                        <option value="./sounds/hihat6.mp3">hihat6</option>
-                        <option value="./sounds/hihat7.mp3">hihat7</option>
-                        <option value="./sounds/hihat8.mp3">hihat8</option>
-                        <option value="./sounds/hihat9.mp3">hihat9</option>
-                    </select>
-                    </div>
-                    <div class="hihat track" data-track="hihat">
-                        <div class="pad hihat-pad b0"></div>
-                        <div class="pad hihat-pad b1"></div>
-                        <div class="pad hihat-pad b2"></div>
-                        <div class="pad hihat-pad b3"></div>
-                        <div class="pad hihat-pad b4"></div>
-                        <div class="pad hihat-pad b5"></div>
-                        <div class="pad hihat-pad b6"></div>
-                        <div class="pad hihat-pad b7"></div>
-                        <div class="pad hihat-pad b8"></div>
-                        <div class="pad hihat-pad b9"></div>
-                    </div>
-            </div>
-            <div class="clap-track">
-                <div class="controls">
-                    <h2>Clap</h2>
-                    <button class="mute clap-volume" data-track='clap'>
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
-                    <button class="randomize clap-randomize" data-track="clap">
-                        <i class="fas fa-random"></i>
-                    </button>
-                    <select name="clap-select" id="clap-select">
-                        <option value="./sounds/clap1.mp3" selected>clap1</option>
-                        <option value="./sounds/clap2.mp3">clap2</option>
-                        <option value="./sounds/clap3.mp3">clap3</option>
-                        <option value="./sounds/clap4.mp3">clap4</option>
-                        <option value="./sounds/clap5.mp3">clap5</option>
-                    </select>
-                    </div>
-                    <div class="clap track" data-track="clap">
-                        <div class="pad clap-pad b0"></div>
-                        <div class="pad clap-pad b1"></div>
-                        <div class="pad clap-pad b2"></div>
-                        <div class="pad clap-pad b3"></div>
-                        <div class="pad clap-pad b4"></div>
-                        <div class="pad clap-pad b5"></div>
-                        <div class="pad clap-pad b6"></div>
-                        <div class="pad clap-pad b7"></div>
-                        <div class="pad clap-pad b8"></div>
-                        <div class="pad clap-pad b9"></div>
-                    </div>
-            </div>
-            <div class="effect-track">
-                <div class="controls">
-                    <h2>Effect</h2>
-                    <button class="mute effect-volume" data-track="effect">
-                        <i class="fas fa-volume-mute"></i>
-                    </button>
-                    <button class="randomize effect-randomize" data-track="effect">
-                        <i class="fas fa-random"></i>
-                    </button>
-                    <select name="effect-select" id="effect-select">
-                        <option value="./sounds/effect1.mp3">effect1</option>
-                        <option value="./sounds/effect2.mp3">effect2</option>
-                        <option value="./sounds/effect3.mp3">effect3</option>
-                        <option value="./sounds/effect4.mp3">effect4</option>
-                        <option value="./sounds/effect5.mp3">effect5</option>
-                        <option value="./sounds/effect6.mp3">effect6</option>
-                        <option value="./sounds/effect7.mp3" selected>effect7</option>
-                    </select>
-
-
-                    </div>
-                    <div class="effect track" data-track="effect">
-                        <div class="pad effect-pad b0"></div>
-                        <div class="pad effect-pad b1"></div>
-                        <div class="pad effect-pad b2"></div>
-                        <div class="pad effect-pad b3"></div>
-                        <div class="pad effect-pad b4"></div>
-                        <div class="pad effect-pad b5"></div>
-                        <div class="pad effect-pad b6"></div>
-                        <div class="pad effect-pad b7"></div>
-                        <div class="pad effect-pad b8"></div>
-                        <div class="pad effect-pad b9"></div>
-                    </div>
-            </div>
-            <div class="general-controls">
-            <button class="save">Save</button>
-            <button class="load">Load</button>
-            <button class="play">Play</button>
-            <button class="randomize-all"><i class="fas fa-random"></i></button>
-            <button class="decrease">-1</button>
-            <button class="increase">+1</button>
+      <div class="beat-container">
+        <div class="kick-track">
+          <div class="controls">
+            <h2>Kick</h2>
+            <button class="mute kick-volume" data-track="kick">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+            <button class="randomize kick-randomize" data-track="kick">
+              <i class="fas fa-random"></i>
+            </button>
+            <select name="kick-select" id="kick-select">
+              <option value="./sounds/kick1.mp3">kick1</option>
+              <option value="./sounds/kick2.mp3">kick2</option>
+              <option value="./sounds/kick3.mp3">kick3</option>
+              <option value="./sounds/kick4.mp3">kick4</option>
+              <option value="./sounds/kick5.mp3">kick5</option>
+              <option value="./sounds/kick6.mp3">kick6</option>
+              <option value="./sounds/kick7.mp3">kick7</option>
+              <option value="./sounds/kick8.mp3" selected>kick8</option>
+            </select>
+          </div>
+          <div class="kick track" data-track="kick">
+            <div class="pad kick-pad b0"></div>
+            <div class="pad kick-pad b1"></div>
+            <div class="pad kick-pad b2"></div>
+            <div class="pad kick-pad b3"></div>
+            <div class="pad kick-pad b4"></div>
+            <div class="pad kick-pad b5"></div>
+            <div class="pad kick-pad b6"></div>
+            <div class="pad kick-pad b7"></div>
+            <div class="pad kick-pad b8"></div>
+            <div class="pad kick-pad b9"></div>
+          </div>
         </div>
-            <div class="tempo">
-                <input type="range" class="tempo-slider" min="50" max="300" value="150">
-                <p> Tempo: <span class="tempo-num">150</span></p>
-            </div>
+        <div class="snare-track">
+          <div class="controls">
+            <h2>Snare</h2>
+            <button class="mute snare-volume" data-track="snare">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+            <button class="randomize snare-randomize" data-track="snare">
+              <i class="fas fa-random"></i>
+            </button>
+            <select name="snare-select" id="snare-select">
+              <option value="./sounds/snare1.mp3">snare1</option>
+              <option value="./sounds/snare2.mp3">snare2</option>
+              <option value="./sounds/snare3.mp3">snare3</option>
+              <option value="./sounds/snare4.mp3">snare4</option>
+              <option value="./sounds/snare5.mp3">snare5</option>
+              <option value="./sounds/snare6.mp3">snare6</option>
+              <option value="./sounds/snare7.mp3">snare7</option>
+              <option value="./sounds/snare8.mp3">snare8</option>
+              <option value="./sounds/snare9.mp3" selected>snare9</option>
+            </select>
+          </div>
+          <div class="snare track" data-track="snare">
+            <div class="pad snare-pad b0"></div>
+            <div class="pad snare-pad b1"></div>
+            <div class="pad snare-pad b2"></div>
+            <div class="pad snare-pad b3"></div>
+            <div class="pad snare-pad b4"></div>
+            <div class="pad snare-pad b5"></div>
+            <div class="pad snare-pad b6"></div>
+            <div class="pad snare-pad b7"></div>
+            <div class="pad snare-pad b8"></div>
+            <div class="pad snare-pad b9"></div>
+          </div>
         </div>
+        <div class="hihat-track">
+          <div class="controls">
+            <h2>Hihat</h2>
+            <button class="mute hihat-volume" data-track="hihat">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+            <button class="randomize hihat-randomize" data-track="hihat">
+              <i class="fas fa-random"></i>
+            </button>
+            <select name="hihat-select" id="hihat-select">
+              <option value="./sounds/hihat1.mp3">hihat1</option>
+              <option value="./sounds/hihat2.mp3">hihat2</option>
+              <option value="./sounds/hihat3.mp3">hihat3</option>
+              <option value="./sounds/hihat4.mp3" selected>hihat4</option>
+              <option value="./sounds/hihat5.mp3">hihat5</option>
+              <option value="./sounds/hihat6.mp3">hihat6</option>
+              <option value="./sounds/hihat7.mp3">hihat7</option>
+              <option value="./sounds/hihat8.mp3">hihat8</option>
+              <option value="./sounds/hihat9.mp3">hihat9</option>
+            </select>
+          </div>
+          <div class="hihat track" data-track="hihat">
+            <div class="pad hihat-pad b0"></div>
+            <div class="pad hihat-pad b1"></div>
+            <div class="pad hihat-pad b2"></div>
+            <div class="pad hihat-pad b3"></div>
+            <div class="pad hihat-pad b4"></div>
+            <div class="pad hihat-pad b5"></div>
+            <div class="pad hihat-pad b6"></div>
+            <div class="pad hihat-pad b7"></div>
+            <div class="pad hihat-pad b8"></div>
+            <div class="pad hihat-pad b9"></div>
+          </div>
+        </div>
+        <div class="clap-track">
+          <div class="controls">
+            <h2>Clap</h2>
+            <button class="mute clap-volume" data-track="clap">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+            <button class="randomize clap-randomize" data-track="clap">
+              <i class="fas fa-random"></i>
+            </button>
+            <select name="clap-select" id="clap-select">
+              <option value="./sounds/clap1.mp3" selected>clap1</option>
+              <option value="./sounds/clap2.mp3">clap2</option>
+              <option value="./sounds/clap3.mp3">clap3</option>
+              <option value="./sounds/clap4.mp3">clap4</option>
+              <option value="./sounds/clap5.mp3">clap5</option>
+            </select>
+          </div>
+          <div class="clap track" data-track="clap">
+            <div class="pad clap-pad b0"></div>
+            <div class="pad clap-pad b1"></div>
+            <div class="pad clap-pad b2"></div>
+            <div class="pad clap-pad b3"></div>
+            <div class="pad clap-pad b4"></div>
+            <div class="pad clap-pad b5"></div>
+            <div class="pad clap-pad b6"></div>
+            <div class="pad clap-pad b7"></div>
+            <div class="pad clap-pad b8"></div>
+            <div class="pad clap-pad b9"></div>
+          </div>
+        </div>
+        <div class="effect-track">
+          <div class="controls">
+            <h2>Effect</h2>
+            <button class="mute effect-volume" data-track="effect">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+            <button class="randomize effect-randomize" data-track="effect">
+              <i class="fas fa-random"></i>
+            </button>
+            <select name="effect-select" id="effect-select">
+              <option value="./sounds/effect1.mp3">effect1</option>
+              <option value="./sounds/effect2.mp3">effect2</option>
+              <option value="./sounds/effect3.mp3">effect3</option>
+              <option value="./sounds/effect4.mp3">effect4</option>
+              <option value="./sounds/effect5.mp3">effect5</option>
+              <option value="./sounds/effect6.mp3">effect6</option>
+              <option value="./sounds/effect7.mp3" selected>effect7</option>
+            </select>
+          </div>
+          <div class="effect track" data-track="effect">
+            <div class="pad effect-pad b0"></div>
+            <div class="pad effect-pad b1"></div>
+            <div class="pad effect-pad b2"></div>
+            <div class="pad effect-pad b3"></div>
+            <div class="pad effect-pad b4"></div>
+            <div class="pad effect-pad b5"></div>
+            <div class="pad effect-pad b6"></div>
+            <div class="pad effect-pad b7"></div>
+            <div class="pad effect-pad b8"></div>
+            <div class="pad effect-pad b9"></div>
+          </div>
+        </div>
+        <div class="general-controls">
+          <button class="save">Save</button>
+          <button class="load">Load</button>
+          <button class="play">Play</button>
+          <button class="randomize-all"><i class="fas fa-random"></i></button>
+          <button class="decrease">-1</button>
+          <button class="increase">+1</button>
+        </div>
+        <div class="tempo">
+          <input
+            type="range"
+            class="tempo-slider"
+            min="50"
+            max="300"
+            value="150"
+          />
+          <p>Tempo: <span class="tempo-num">150</span></p>
+        </div>
+      </div>
 
-        <audio class="kick-sound" src="./sounds/kick8.mp3"></audio>
-        <audio class="snare-sound" src="./sounds/snare9.mp3" volume=0.2></audio>
-        <audio class="hihat-sound" src="./sounds/hihat4.mp3"></audio>
-        <audio class="clap-sound" src="./sounds/clap1.mp3"></audio>
-        <audio class="effect-sound" src="./sounds/effect7.mp3"></audio>
-
+      <audio class="kick-sound" src="./sounds/kick8.mp3"></audio>
+      <audio class="snare-sound" src="./sounds/snare9.mp3" volume="0.2"></audio>
+      <audio class="hihat-sound" src="./sounds/hihat4.mp3"></audio>
+      <audio class="clap-sound" src="./sounds/clap1.mp3"></audio>
+      <audio class="effect-sound" src="./sounds/effect7.mp3"></audio>
     </section>
 
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+      crossorigin="anonymous"
+    ></script>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
