@@ -101,6 +101,76 @@
 
   /* this is the end of  the navbar css */
 
+  .form-container {
+    @apply w-full p-5 mb-1 border-none hidden bg-gray-700;
+  }
+
+  /*modal form start here */
+  .main-modal {
+    background: rgba(0, 0, 0, 0.7);
+    @apply fixed w-full h-full inset-0 z-50 overflow-hidden hidden justify-center items-center animated fadeIn faster ;
+  }
+
+  .modal-container {
+    @apply border border-gray-500  bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto;
+  }
+
+  .modal-content {
+    @apply py-4 text-left px-6;
+  }
+
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .animated.faster {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+  }
+
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+
+  .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  #saved-name {
+    @apply bg-gray-300 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900;
+  }
+
+  #save-btn-form {
+    @apply bg-green-400 mt-3 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900;
+  }
+
+  /*modal form finish here */
+
   /* animation for navbar css start*/
   @keyframes navLinkFade {
     from {

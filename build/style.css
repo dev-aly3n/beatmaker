@@ -597,10 +597,11 @@ nav {
 }
 
 .logo {
-  font-family: 'Londrina Outline', cursive;
+  font-family: "Londrina Outline", cursive;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
           animation: glow 1s ease-in-out infinite alternate;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+      0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -612,7 +613,7 @@ nav {
 
 .nav-links {
   width: 50%;
-  font-family: 'Jockey One', cursive;
+  font-family: "Jockey One", cursive;
   display: flex;
   margin-left: 0px;
   margin-right: 0px;
@@ -670,13 +671,13 @@ nav {
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width:1025px) {
+@media screen and (max-width: 1025px) {
   body {
     overflow-x: hidden;
   }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
   .nav-links {
     width: 60%;
     right: 0px;
@@ -730,6 +731,220 @@ nav {
 
 /* this is the end of  the navbar css */
 
+.form-container {
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+  border-style: none;
+  display: none;
+  margin-bottom: 0.25rem;
+  padding: 1.25rem;
+  width: 100%;
+}
+
+/*modal form start here */
+
+.main-modal {
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.main-modal.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.animated.main-modal {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.main-modal {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 50;
+}
+
+.modal-container {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+  border-radius: 0.25rem;
+  border-width: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: auto;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  width: 91.666667%;
+  z-index: 50;
+}
+
+@media (min-width: 768px) {
+  .modal-container {
+    max-width: 28rem;
+  }
+}
+
+.modal-content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+#saved-name {
+  --tw-bg-opacity: 1;
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+  border-radius: 0.5rem;
+}
+
+#saved-name:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+#saved-name {
+  padding: 0.75rem;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+#saved-name:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+#saved-name {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(75, 85, 99, var(--tw-ring-opacity));
+}
+
+#saved-name:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(17, 24, 39, var(--tw-ring-opacity));
+}
+
+#save-btn-form {
+  --tw-bg-opacity: 1;
+  background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+#save-btn-form:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+#save-btn-form {
+  padding: 0.75rem;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+#save-btn-form:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+#save-btn-form {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(75, 85, 99, var(--tw-ring-opacity));
+}
+
+#save-btn-form:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(17, 24, 39, var(--tw-ring-opacity));
+}
+
+/*modal form finish here */
+
 /* animation for navbar css start*/
 
 @-webkit-keyframes navLinkFade {
@@ -740,7 +955,7 @@ nav {
 
   to {
     opacity: 1;
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 }
 
@@ -752,33 +967,37 @@ nav {
 
   to {
     opacity: 1;
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 }
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6,
+        0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
   }
 
   to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6,
+        0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
   }
 }
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6,
+        0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
   }
 
   to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6,
+        0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
   }
 }
 
 /* animation for navbar css stop */
 
-#beat-section{
+#beat-section {
   --tw-bg-opacity: 1;
   background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
 }
@@ -812,52 +1031,52 @@ i, svg {
   }
 }
 
-.kick-pad{
+.kick-pad {
   --tw-bg-opacity: 1;
   background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 }
 
-.snare-pad{
+.snare-pad {
   --tw-bg-opacity: 1;
   background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
 }
 
-.hihat-pad{
+.hihat-pad {
   --tw-bg-opacity: 1;
   background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
 }
 
-.clap-pad{
+.clap-pad {
   --tw-bg-opacity: 1;
   background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
 }
 
-.effect-pad{
+.effect-pad {
   --tw-bg-opacity: 1;
   background-color: rgba(221, 214, 254, var(--tw-bg-opacity));
 }
 
-.kick-pad.active{
+.kick-pad.active {
   --tw-bg-opacity: 1;
   background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
-.snare-pad.active{
+.snare-pad.active {
   --tw-bg-opacity: 1;
   background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
 }
 
-.hihat-pad.active{
+.hihat-pad.active {
   --tw-bg-opacity: 1;
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 
-.clap-pad.active{
+.clap-pad.active {
   --tw-bg-opacity: 1;
   background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 }
 
-.effect-pad.active{
+.effect-pad.active {
   --tw-bg-opacity: 1;
   background-color: rgba(139, 92, 246, var(--tw-bg-opacity));
 }
@@ -878,27 +1097,27 @@ i, svg {
   }
 }
 
-.kick-track{
+.kick-track {
   --tw-bg-opacity: 1;
   background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
 }
 
-.snare-track{
+.snare-track {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 251, 235, var(--tw-bg-opacity));
 }
 
-.hihat-track{
+.hihat-track {
   --tw-bg-opacity: 1;
   background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
 
-.clap-track{
+.clap-track {
   --tw-bg-opacity: 1;
   background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
 }
 
-.effect-track{
+.effect-track {
   --tw-bg-opacity: 1;
   background-color: rgba(245, 243, 255, var(--tw-bg-opacity));
 }
@@ -909,7 +1128,7 @@ i, svg {
   width: 80%;
 }
 
-.controls{
+.controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1193,22 +1412,22 @@ select {
 }
 
 @-webkit-keyframes boomBoom {
-  from{
-    transform: scale(1) ;
+  from {
+    transform: scale(1);
   }
 
   to {
-    transform: scale(0.8)  ;
+    transform: scale(1.2);
   }
 }
 
 @keyframes boomBoom {
-  from{
-    transform: scale(1) ;
+  from {
+    transform: scale(1);
   }
 
   to {
-    transform: scale(0.8)  ;
+    transform: scale(1.2);
   }
 }
 

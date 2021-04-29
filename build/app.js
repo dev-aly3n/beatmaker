@@ -36,6 +36,45 @@ const navSlide = () => {
 navSlide();
 // modern Navigation bar code stop here
 
+
+
+// modal form start here
+
+
+const modal = document.querySelector('.main-modal');
+const modalCloseBtn = document.querySelector('.modal-close');
+
+function modalClose() {
+  modal.classList.remove('fadeIn');
+  modal.classList.add('fadeOut');
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 500);
+}
+
+document.querySelector('.save').addEventListener('click', function(){
+  modal.classList.remove('fadeOut');
+  modal.classList.add('fadeIn');
+  modal.style.display = 'flex';
+});
+
+modalCloseBtn.addEventListener('click', function(e){
+// e.preventDefault();
+modalClose();
+
+});
+
+window.addEventListener('click', function(e){
+  // e.preventDefault();
+  if(e.target == modal){
+    modalClose();
+  }
+});
+
+// modal form finish here
+
+
+
 //drum app start here
 
 class Drum {
@@ -62,7 +101,7 @@ class Drum {
     this.randomizeAllBtn = document.querySelector(".randomize-all");
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
-    this.saveBtn = document.querySelector(".save");
+    this.saveBtn = document.querySelector("#save-btn-form");
   }
 
   // return true/false doe to the random number is odd or not
@@ -307,7 +346,10 @@ class Drum {
   }
 
   //saving the current track
-  save() {}
+  save(trackName) {
+    const activepads = document.querySelectorAll(".pad");
+    localStorage.setItem(`${trackName}` , JSON.stringify(activepads));
+  }
 }
 
 //////////////////////////////////////////
@@ -391,5 +433,18 @@ drum.randomizeAllBtn.addEventListener("click", function () {
 });
 
 drum.saveBtn.addEventListener("click", function () {
-  drum.save();
+  modalClose();
+  let trackName = document.querySelector('#saved-name').value;
+  drum.save(trackName);
 });
+
+
+
+
+
+
+
+
+
+
+
