@@ -355,7 +355,8 @@
   .general-controls .play,
   .randomize-all,
   .save,
-  .load {
+  .load,
+  .clear-all  {
     @apply bg-gray-600 text-white py-4 px-8 mt-6 text-2xl border-none active:bg-gray-900
     shadow-2xl active:shadow-inner;
   }

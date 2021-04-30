@@ -129,6 +129,7 @@ class Drum {
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
     this.saveBtn = document.querySelector("#save-btn-form");
+    this.clearBtn = document.querySelector(".clear-all");
   }
 
   // return true/false doe to the random number is odd or not
@@ -430,6 +431,15 @@ class Drum {
     this.changeTempo(tempo);
     this.updateTempo(tempo);
     this.tempoSlider.value = tempo;
+
+    //update drum.pads and call the activePad eventLisener again
+    drum.pads = document.querySelectorAll(".pad");
+    drum.pads.forEach((pad) => {
+      pad.addEventListener("click", drum.activePad);
+      pad.addEventListener("animationend", function () {
+        this.style.animation = "";
+      });
+    });
   }
 
   clearActive() {
@@ -554,6 +564,10 @@ drum.saveBtn.addEventListener("click", function (e) {
     });
   });
 }
+
+drum.clearBtn.addEventListener("click", function () {
+  drum.clearActive();
+});
 // console.log(JSON.parse(localStorage.getItem(localStorage.key(1))));
 
 // console.log(JSON.stringify(activepads));

@@ -1339,17 +1339,17 @@ h2 {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.general-controls .play, .randomize-all, .save, .load {
+.general-controls .play, .randomize-all, .save, .load, .clear-all {
   --tw-bg-opacity: 1;
   background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
 }
 
-.general-controls .play:active, .randomize-all:active, .save:active, .load:active {
+.general-controls .play:active, .randomize-all:active, .save:active, .load:active, .clear-all:active {
   --tw-bg-opacity: 1;
   background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
 
-.general-controls .play, .randomize-all, .save, .load {
+.general-controls .play, .randomize-all, .save, .load, .clear-all {
   border-style: none;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1362,12 +1362,12 @@ h2 {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.general-controls .play:active, .randomize-all:active, .save:active, .load:active {
+.general-controls .play:active, .randomize-all:active, .save:active, .load:active, .clear-all:active {
   --tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.general-controls .play, .randomize-all, .save, .load {
+.general-controls .play, .randomize-all, .save, .load, .clear-all {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
