@@ -101,14 +101,55 @@
 
   /* this is the end of  the navbar css */
 
+  /*modal form for load start here */
+  .main-modal-load {
+    background: rgba(0, 0, 0, 0.7);
+    @apply fixed w-full h-full inset-0 z-50 overflow-hidden hidden justify-center items-center animated fadeIn faster;
+  }
+
+  .modal-container-load {
+    @apply border border-gray-500  bg-white w-11/12 md:max-w-7xl mx-auto rounded shadow-lg z-50 overflow-y-auto;
+  }
+
+  .modal-content-load {
+    @apply py-4 text-left px-6;
+  }
+
+  .load-tracks {
+    @apply flex;
+  }
+
+  .load-header {
+    @apply text-center font-semibold text-2xl;
+  }
+
+  .sample-tracks {
+    @apply border rounded-xl m-auto w-2/5 shadow-2xl;
+  }
+
+  .your-tracks {
+    @apply border rounded-xl m-auto w-2/5 shadow-2xl;
+  }
+
+  .your-tracks-content {
+    @apply flex m-auto flex-wrap;
+  }
+
+  .track-load-style{
+@apply border-2 p-1 m-auto my-1 rounded-lg cursor-pointer hover:bg-gray-200 active:bg-gray-400 shadow-inner;
+  }
+
+  /*modal form for load finish here */
+
+  /*modal form for save start here */
+
   .form-container {
     @apply w-full p-5 mb-1 border-none hidden bg-gray-700;
   }
 
-  /*modal form start here */
   .main-modal {
     background: rgba(0, 0, 0, 0.7);
-    @apply fixed w-full h-full inset-0 z-50 overflow-hidden hidden justify-center items-center animated fadeIn faster ;
+    @apply fixed w-full h-full inset-0 z-50 overflow-hidden hidden justify-center items-center animated fadeIn faster;
   }
 
   .modal-container {
@@ -162,14 +203,18 @@
   }
 
   #saved-name {
-    @apply bg-gray-300 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900;
+    @apply bg-gray-200 border-gray-400 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:bg-gray-100;
   }
 
   #save-btn-form {
     @apply bg-green-400 mt-3 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900;
   }
 
-  /*modal form finish here */
+  .saving-error {
+    @apply hidden text-white text-xl font-normal bg-red-600 rounded-xl pl-4 py-1;
+  }
+
+  /*modal form for save finish here */
 
   /* animation for navbar css start*/
   @keyframes navLinkFade {

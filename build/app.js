@@ -36,44 +36,71 @@ const navSlide = () => {
 navSlide();
 // modern Navigation bar code stop here
 
+// modal form for saving start here
 
-
-// modal form start here
-
-
-const modal = document.querySelector('.main-modal');
-const modalCloseBtn = document.querySelector('.modal-close');
+const modal = document.querySelector(".main-modal");
+const modalCloseBtn = document.querySelector(".modal-close");
 
 function modalClose() {
-  modal.classList.remove('fadeIn');
-  modal.classList.add('fadeOut');
+  modal.classList.remove("fadeIn");
+  modal.classList.add("fadeOut");
   setTimeout(() => {
-    modal.style.display = 'none';
+    modal.style.display = "none";
   }, 500);
 }
 
-document.querySelector('.save').addEventListener('click', function(){
-  modal.classList.remove('fadeOut');
-  modal.classList.add('fadeIn');
-  modal.style.display = 'flex';
+document.querySelector(".save").addEventListener("click", function () {
+  modal.classList.remove("fadeOut");
+  modal.classList.add("fadeIn");
+  modal.style.display = "flex";
 });
 
-modalCloseBtn.addEventListener('click', function(e){
-// e.preventDefault();
-modalClose();
-
-});
-
-window.addEventListener('click', function(e){
+modalCloseBtn.addEventListener("click", function (e) {
   // e.preventDefault();
-  if(e.target == modal){
+  modalClose();
+});
+
+window.addEventListener("click", function (e) {
+  // e.preventDefault();
+  if (e.target == modal) {
     modalClose();
   }
 });
 
-// modal form finish here
+// modal form for saving finish here
 
+// modal form for loading start here
 
+const modalLoad = document.querySelector(".main-modal-load");
+const modalLoadCloseBtn = document.querySelector(".modal-close-load");
+
+function modalCloseLoad() {
+  modalLoad.classList.remove("fadeIn");
+  modalLoad.classList.add("fadeOut");
+  setTimeout(() => {
+    modalLoad.style.display = "none";
+  }, 500);
+}
+
+document.querySelector(".load").addEventListener("click", function () {
+  modalLoad.classList.remove("fadeOut");
+  modalLoad.classList.add("fadeIn");
+  modalLoad.style.display = "flex";
+});
+
+modalLoadCloseBtn.addEventListener("click", function (e) {
+  // e.preventDefault();
+  modalCloseLoad();
+});
+
+window.addEventListener("click", function (e) {
+  // e.preventDefault();
+  if (e.target == modalLoad) {
+    modalCloseLoad();
+  }
+});
+
+// modal form for loading finish here
 
 //drum app start here
 
@@ -250,12 +277,12 @@ class Drum {
   //change the bpm of the track by a slider
   //change the text parameter of the tempo in the same time
   changeTempo(e) {
-    document.querySelector(".tempo-num").innerText = e.target.value;
+    document.querySelector(".tempo-num").innerText = e;
   }
   // change the actual bpm after that user changed the slider
   // we reset all the parameter and then check if the song is now playing? if yes then we start it with new bpm and else we do nothing
   updateTempo(e) {
-    this.bpm = e.target.value;
+    this.bpm = e;
     clearInterval(this.play);
     this.play = null;
     const playBtn = document.querySelector(".play");
@@ -348,7 +375,68 @@ class Drum {
   //saving the current track
   save(trackName) {
     const activepads = document.querySelectorAll(".pad");
-    localStorage.setItem(`${trackName}` , JSON.stringify(activepads));
+    const newArr = [];
+    activepads.forEach((el) => {
+      newArr.push(el.outerHTML);
+    });
+    let tempo = document.querySelector(".tempo-num").textContent;
+    tempo = Number(tempo);
+    newArr.push(tempo);
+    localStorage.setItem(`${trackName}`, JSON.stringify(newArr));
+
+    //showing the saved track in loading page
+    const item = document.createElement("div");
+    item.innerText = trackName;
+    item.classList.add("track-load-style");
+    item.classList.add("new-save");
+    document.querySelector(".your-tracks-content").appendChild(item);
+    //add the event listener to the new saved track
+    const loadContent = document.querySelector(".new-save");
+    loadContent.addEventListener("click", (track) => {
+      const loadTrack = track.target.textContent;
+      this.load(loadTrack);
+    });
+  }
+
+  load(trackName) {
+    let pads = document.querySelectorAll(".pad");
+    pads.forEach((pad) => {
+      pad.classList.remove("active");
+    });
+    let trackArray = JSON.parse(localStorage.getItem(trackName));
+    //removing the last element and assign it to a varible
+    let tempo = trackArray.pop();
+    //we want to make number of pads as number of the loaded track to activate them
+    let loadLength = trackArray.length;
+    let lengthDiffrence = (loadLength - pads.length) / 5;
+
+    if (lengthDiffrence > 0) {
+      for (let i = lengthDiffrence; i > 0; i--) {
+        this.increasePad();
+      }
+    } else {
+      for (let i = lengthDiffrence; i < 0; i++) {
+        this.decreasePad();
+      }
+    }
+    pads = document.querySelectorAll(".pad");
+    trackArray.forEach((el, index) => {
+      if (el.indexOf("active") >= 0) {
+        pads[index].classList.add("active");
+      }
+    });
+
+    //change the tempo value by the value of the loaded track
+    this.changeTempo(tempo);
+    this.updateTempo(tempo);
+    this.tempoSlider.value = tempo;
+  }
+
+  clearActive() {
+    let pads = document.querySelectorAll(".pad");
+    pads.forEach((pad) => {
+      pad.classList.remove("active");
+    });
   }
 }
 
@@ -412,12 +500,12 @@ drum.muteBtnS.forEach((btn) => {
 
 //changing the text of tempo slider in every moment
 drum.tempoSlider.addEventListener("input", function (e) {
-  drum.changeTempo(e);
+  drum.changeTempo(e.target.value);
 });
 
 //changing the bpm when the user changed the tempo slider
 drum.tempoSlider.addEventListener("change", function (e) {
-  drum.updateTempo(e);
+  drum.updateTempo(e.target.value);
 });
 
 //randomize every track that had been clicked on the randomize btn
@@ -432,19 +520,40 @@ drum.randomizeAllBtn.addEventListener("click", function () {
   drum.randomizeAll();
 });
 
-drum.saveBtn.addEventListener("click", function () {
-  modalClose();
-  let trackName = document.querySelector('#saved-name').value;
-  drum.save(trackName);
+drum.saveBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const savingError = document.querySelector(".saving-error");
+  let trackName = document.querySelector("#saved-name");
+  if (trackName.value !== "") {
+    modalClose();
+    drum.save(trackName.value);
+    trackName.value = "";
+  } else {
+    savingError.style.display = "block";
+  }
+  setTimeout(() => {
+    savingError.style.display = "none";
+  }, 3000);
 });
 
+//load contents in the load page from localstorage
+{
+  for (let i = 0; i < localStorage.length; i++) {
+    const trackName = localStorage.key(i);
+    const item = document.createElement("div");
+    item.innerText = trackName;
+    item.classList.add("track-load-style");
+    document.querySelector(".your-tracks-content").appendChild(item);
+  }
+  const loadContentS = document.querySelectorAll(".track-load-style");
+  loadContentS.forEach((item) => {
+    item.classList.remove("new-save");
+    item.addEventListener("click", function (track) {
+      const loadTrack = track.target.textContent;
+      drum.load(loadTrack);
+    });
+  });
+}
+// console.log(JSON.parse(localStorage.getItem(localStorage.key(1))));
 
-
-
-
-
-
-
-
-
-
+// console.log(JSON.stringify(activepads));
