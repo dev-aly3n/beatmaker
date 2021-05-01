@@ -46,7 +46,7 @@ function modalClose() {
   modal.classList.add("fadeOut");
   setTimeout(() => {
     modal.style.display = "none";
-  }, 500);
+  }, 800);
 }
 
 document.querySelector(".save").addEventListener("click", function () {
@@ -79,7 +79,7 @@ function modalCloseLoad() {
   modalLoad.classList.add("fadeOut");
   setTimeout(() => {
     modalLoad.style.display = "none";
-  }, 500);
+  }, 800);
 }
 
 document.querySelector(".load").addEventListener("click", function () {
@@ -378,8 +378,14 @@ class Drum {
     const activepads = document.querySelectorAll(".pad");
     const newArr = [];
     activepads.forEach((el) => {
+      el.classList.remove("new-save");
       newArr.push(el.outerHTML);
     });
+    newArr.push(document.querySelector("#kick-select").value);
+    newArr.push(document.querySelector("#snare-select").value);
+    newArr.push(document.querySelector("#hihat-select").value);
+    newArr.push(document.querySelector("#clap-select").value);
+    newArr.push(document.querySelector("#effect-select").value);
     let tempo = document.querySelector(".tempo-num").textContent;
     tempo = Number(tempo);
     newArr.push(tempo);
@@ -392,10 +398,12 @@ class Drum {
     item.classList.add("new-save");
     document.querySelector(".your-tracks-content").appendChild(item);
     //add the event listener to the new saved track
-    const loadContent = document.querySelector(".new-save");
-    loadContent.addEventListener("click", (track) => {
-      const loadTrack = track.target.textContent;
-      this.load(loadTrack);
+    const loadContent = document.querySelectorAll(".new-save");
+    loadContent.forEach((el) => {
+      el.addEventListener("click", (track) => {
+        const loadTrack = track.target.textContent;
+        this.load(loadTrack);
+      });
     });
   }
 
@@ -405,8 +413,39 @@ class Drum {
       pad.classList.remove("active");
     });
     let trackArray = JSON.parse(localStorage.getItem(trackName));
+    console.log(trackArray)
     //removing the last element and assign it to a varible
+    //changing the sound by loaded value
     let tempo = trackArray.pop();
+    let effectSrc = trackArray.pop();
+    this.effectAudio.src = effectSrc;
+    let clapSrc = trackArray.pop();
+    this.clapAudio.src = clapSrc;
+    let hihatSrc = trackArray.pop();
+    this.hihatAudio.src = hihatSrc;
+    let snareSrc = trackArray.pop();
+    this.snareAudio.src = snareSrc;
+    let kickSrc = trackArray.pop();
+    this.kickAudio.src = kickSrc;
+
+    // change what the select showing to us
+    document.querySelectorAll("select").forEach((select) => {
+      let optionLength = select.options.length;
+      for (let i = 0; i < optionLength; i++) {
+        if (select.options[i].value == kickSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == snareSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == hihatSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == clapSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == effectSrc) {
+          select.options.selectedIndex = i;
+        }
+      }
+    });
+
     //we want to make number of pads as number of the loaded track to activate them
     let loadLength = trackArray.length;
     let lengthDiffrence = (loadLength - pads.length) / 5;
@@ -431,6 +470,7 @@ class Drum {
     this.changeTempo(tempo);
     this.updateTempo(tempo);
     this.tempoSlider.value = tempo;
+    modalCloseLoad();
 
     //update drum.pads and call the activePad eventLisener again
     drum.pads = document.querySelectorAll(".pad");
@@ -447,6 +487,82 @@ class Drum {
     pads.forEach((pad) => {
       pad.classList.remove("active");
     });
+  }
+
+  loadSamples(trackName){
+    const weWillRockYou = ['<div class="pad kick-pad b0 active" ></div>', '<div class="pad kick-pad b1 active" ></div>', '<div class="pad kick-pad b2" ></div>', '<div class="pad kick-pad b3" ></div>', '<div class="pad kick-pad b4 active" ></div>', '<div class="pad kick-pad b5 active" ></div>', '<div class="pad kick-pad b6" ></div>', '<div class="pad kick-pad b7" ></div>', '<div class="pad snare-pad b0" ></div>', '<div class="pad snare-pad b1" ></div>', '<div class="pad snare-pad b2 active" ></div>', '<div class="pad snare-pad b3" ></div>', '<div class="pad snare-pad b4" ></div>', '<div class="pad snare-pad b5" ></div>', '<div class="pad snare-pad b6 active" ></div>', '<div class="pad snare-pad b7" ></div>', '<div class="pad hihat-pad b0" ></div>', '<div class="pad hihat-pad b1" ></div>', '<div class="pad hihat-pad b2" ></div>', '<div class="pad hihat-pad b3 active" ></div>', '<div class="pad hihat-pad b4" ></div>', '<div class="pad hihat-pad b5" ></div>', '<div class="pad hihat-pad b6" ></div>', '<div class="pad hihat-pad b7" ></div>', '<div class="pad clap-pad b0" ></div>', '<div class="pad clap-pad b1" ></div>', '<div class="pad clap-pad b2 active" ></div>', '<div class="pad clap-pad b3" ></div>', '<div class="pad clap-pad b4" ></div>', '<div class="pad clap-pad b5" ></div>', '<div class="pad clap-pad b6 active" ></div>', '<div class="pad clap-pad b7" ></div>', '<div class="pad effect-pad b0" ></div>', '<div class="pad effect-pad b1" ></div>', '<div class="pad effect-pad b2" ></div>', '<div class="pad effect-pad b3 active" ></div>', '<div class="pad effect-pad b4" ></div>', '<div class="pad effect-pad b5" ></div>', '<div class="pad effect-pad b6" ></div>', '<div class="pad effect-pad b7" ></div>', './sounds/kick8.mp3', './sounds/snare5.mp3', './sounds/hihat4.mp3', './sounds/clap1.mp3', './sounds/effect7.mp3', 147]
+    let pads = document.querySelectorAll(".pad");
+    pads.forEach((pad) => {
+      pad.classList.remove("active");
+    });
+    let trackArray = weWillRockYou;
+    //removing the last element and assign it to a varible
+    //changing the sound by loaded value
+    let tempo = trackArray.pop();
+    let effectSrc = trackArray.pop();
+    this.effectAudio.src = effectSrc;
+    let clapSrc = trackArray.pop();
+    this.clapAudio.src = clapSrc;
+    let hihatSrc = trackArray.pop();
+    this.hihatAudio.src = hihatSrc;
+    let snareSrc = trackArray.pop();
+    this.snareAudio.src = snareSrc;
+    let kickSrc = trackArray.pop();
+    this.kickAudio.src = kickSrc;
+
+    // change what the select showing to us
+    document.querySelectorAll("select").forEach((select) => {
+      let optionLength = select.options.length;
+      for (let i = 0; i < optionLength; i++) {
+        if (select.options[i].value == kickSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == snareSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == hihatSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == clapSrc) {
+          select.options.selectedIndex = i;
+        } else if (select.options[i].value == effectSrc) {
+          select.options.selectedIndex = i;
+        }
+      }
+    });
+
+    //we want to make number of pads as number of the loaded track to activate them
+    let loadLength = trackArray.length;
+    let lengthDiffrence = (loadLength - pads.length) / 5;
+
+    if (lengthDiffrence > 0) {
+      for (let i = lengthDiffrence; i > 0; i--) {
+        this.increasePad();
+      }
+    } else {
+      for (let i = lengthDiffrence; i < 0; i++) {
+        this.decreasePad();
+      }
+    }
+    pads = document.querySelectorAll(".pad");
+    trackArray.forEach((el, index) => {
+      if (el.indexOf("active") >= 0) {
+        pads[index].classList.add("active");
+      }
+    });
+
+    //change the tempo value by the value of the loaded track
+    this.changeTempo(tempo);
+    this.updateTempo(tempo);
+    this.tempoSlider.value = tempo;
+    modalCloseLoad();
+
+    //update drum.pads and call the activePad eventLisener again
+    drum.pads = document.querySelectorAll(".pad");
+    drum.pads.forEach((pad) => {
+      pad.addEventListener("click", drum.activePad);
+      pad.addEventListener("animationend", function () {
+        this.style.animation = "";
+      });
+    });
+
   }
 }
 
@@ -548,6 +664,7 @@ drum.saveBtn.addEventListener("click", function (e) {
 
 //load contents in the load page from localstorage
 {
+  // LS
   for (let i = 0; i < localStorage.length; i++) {
     const trackName = localStorage.key(i);
     const item = document.createElement("div");
@@ -563,11 +680,22 @@ drum.saveBtn.addEventListener("click", function (e) {
       drum.load(loadTrack);
     });
   });
+
+
+    // SS
+    
+    const sampleContentS = document.querySelectorAll(".sample-load-style");
+    sampleContentS.forEach((item) => {
+    item.addEventListener("click", function (track) {
+      const loadTrack = track.target.textContent;
+      drum.loadSamples(loadTrack);
+    });
+  });
 }
 
 drum.clearBtn.addEventListener("click", function () {
   drum.clearActive();
 });
-// console.log(JSON.parse(localStorage.getItem(localStorage.key(1))));
 
-// console.log(JSON.stringify(activepads));
+// console.log(document.querySelector('#kick-select').options[2])
+

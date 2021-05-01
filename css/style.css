@@ -104,19 +104,20 @@
   /*modal form for load start here */
   .main-modal-load {
     background: rgba(0, 0, 0, 0.7);
-    @apply fixed w-full h-full inset-0 z-50 overflow-hidden hidden justify-center items-center animated fadeIn faster;
+    @apply fixed w-full h-full inset-0 z-50 overflow-x-hidden
+     hidden justify-center items-center animated fadeIn faster;
   }
 
   .modal-container-load {
-    @apply border border-gray-500  bg-white w-11/12 md:max-w-7xl mx-auto rounded shadow-lg z-50 overflow-y-auto;
+    @apply border border-gray-500 bg-white w-11/12  mx-auto rounded z-50 max-h-full overflow-y-auto;
   }
 
   .modal-content-load {
-    @apply py-4 text-left px-6;
+    @apply py-4 px-6;
   }
 
   .load-tracks {
-    @apply flex;
+    @apply flex flex-col md:flex-row;
   }
 
   .load-header {
@@ -124,19 +125,26 @@
   }
 
   .sample-tracks {
-    @apply border rounded-xl m-auto w-2/5 shadow-2xl;
+    @apply border rounded-xl m-auto p-5  w-11/12 md:w-2/5 shadow-2xl;
   }
 
   .your-tracks {
-    @apply border rounded-xl m-auto w-2/5 shadow-2xl;
+    @apply border rounded-xl m-auto p-5 w-11/12  md:w-2/5 shadow-2xl mt-5 md:mt-0;
   }
 
   .your-tracks-content {
-    @apply flex m-auto flex-wrap;
+    @apply flex flex-wrap m-auto;
+  }
+  .sample-tracks-content {
+    @apply flex flex-wrap m-auto;
   }
 
-  .track-load-style{
-@apply border-2 p-1 m-auto my-1 rounded-lg cursor-pointer hover:bg-gray-200 active:bg-gray-400 shadow-inner;
+  .track-load-style {
+    @apply border-2 p-1 m-auto px-2 ml-1 my-1 rounded-lg cursor-pointer hover:bg-gray-200 active:bg-gray-400 shadow-inner;
+  }
+  
+  .sample-load-style {
+    @apply border-2 p-1 m-auto px-2 ml-1 my-1 rounded-lg cursor-pointer hover:bg-gray-200 active:bg-gray-400 shadow-inner;
   }
 
   /*modal form for load finish here */
@@ -153,7 +161,7 @@
   }
 
   .modal-container {
-    @apply border border-gray-500  bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto;
+    @apply border border-gray-500  bg-white w-11/12 sm:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto;
   }
 
   .modal-content {
@@ -356,7 +364,7 @@
   .randomize-all,
   .save,
   .load,
-  .clear-all  {
+  .clear-all {
     @apply bg-gray-600 text-white py-4 px-8 mt-6 text-2xl border-none active:bg-gray-900
     shadow-2xl active:shadow-inner;
   }
