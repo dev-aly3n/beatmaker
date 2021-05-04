@@ -122,7 +122,7 @@ class Drum {
     this.index = 0;
     this.bpm = 200;
     this.play = null;
-    this.muteBtnS = document.querySelectorAll(".mute");
+    this.volumeBtnS = document.querySelectorAll(".volume");
     this.tempoSlider = document.querySelector(".tempo-slider");
     this.randomizeBtnS = document.querySelectorAll(".randomize");
     this.randomizeAllBtn = document.querySelector(".randomize-all");
@@ -230,49 +230,32 @@ class Drum {
     }
   }
 
-  // muting a song when it isn't mute and unmuting them
-  //and add toggle the class active to the mute btn
-  mute(e) {
-    const muteName = e.target.getAttribute("data-track");
-    const muteClass = e.target.classList;
-    muteClass.toggle("active");
-    if (muteClass.contains("active")) {
-      switch (muteName) {
-        case "kick":
-          this.kickAudio.volume = 0;
-          break;
-        case "snare":
-          this.snareAudio.volume = 0;
-          break;
-        case "hihat":
-          this.hihatAudio.volume = 0;
-          break;
-        case "clap":
-          this.clapAudio.volume = 0;
-          break;
-        case "effect":
-          this.effectAudio.volume = 0;
-          break;
-      }
-    } else {
-      switch (muteName) {
-        case "kick":
-          this.kickAudio.volume = 1;
-          break;
-        case "snare":
-          this.snareAudio.volume = 1;
-          break;
-        case "hihat":
-          this.hihatAudio.volume = 1;
-          break;
-        case "clap":
-          this.clapAudio.volume = 1;
-          break;
-        case "effect":
-          this.effectAudio.volume = 1;
-          break;
-      }
+
+  volume(e) {
+    const dataTrack = e.target.getAttribute('data-track');
+    const volume = e.target.value/100;
+    switch(dataTrack) {
+      case 'kick':
+      this.kickAudio.volume = volume;
+      break;
+      case 'snare':
+      this.snareAudio.volume = volume;
+      break;
+      case 'hihat':
+      this.hihatAudio.volume = volume;
+      break;
+      case 'clap':
+      this.clapAudio.volume = volume;
+      break;
+      case 'effect':
+      this.effectAudio.volume = volume;
+      break;
     }
+  }
+
+  volumeNum(e){
+    let volumeNum = e.target.nextElementSibling;
+    volumeNum.innerText = e.target.value;
   }
 
   //change the bpm of the track by a slider
@@ -1094,12 +1077,16 @@ drum.selectS.forEach((select) => {
   });
 });
 
-//muting the track when user clicked on the mute btn
-drum.muteBtnS.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    drum.mute(e);
+
+drum.volumeBtnS.forEach((btn) => {
+  btn.addEventListener("input", function (e) {
+    drum.volume(e);
+  });
+  btn.addEventListener('input', function(e){
+drum.volumeNum(e);
   });
 });
+
 
 //changing the text of tempo slider in every moment
 drum.tempoSlider.addEventListener("input", function (e) {
@@ -1174,3 +1161,4 @@ drum.clearBtn.addEventListener("click", function () {
 });
 
 // console.log(document.querySelector('#kick-select').options[2])
+
