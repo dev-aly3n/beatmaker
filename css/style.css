@@ -4,6 +4,7 @@
 
 @tailwind utilities;
 
+
 @layer components {
   /* this is the start of navbar css */
   nav {
@@ -125,11 +126,11 @@
   }
 
   .sample-tracks {
-    @apply border rounded-xl m-auto p-5  w-11/12 md:w-2/5 shadow-2xl;
+    @apply border rounded-xl m-auto p-5  w-11/12 md:w-2/5 shadow-2xl mt-5 md:mt-0;
   }
 
   .your-tracks {
-    @apply border rounded-xl m-auto p-5 w-11/12  md:w-2/5 shadow-2xl mt-5 md:mt-0;
+    @apply border rounded-xl m-auto p-5 w-11/12  md:w-2/5 shadow-2xl ;
   }
 
   .your-tracks-content {
@@ -399,13 +400,8 @@
     @apply text-2xl m-3 text-center font-medium;
   }
 
-  .volume {
-@apply m-4 w-1/3 relative bottom-16;
-  }
-  .volume-slider{
-    -webkit-appearance: none;
-    @apply bg-gray-600 p-1 mt-1 w-full relative cursor-pointer rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500;
-  }
+
+
 
   @keyframes boomBoom {
     from {

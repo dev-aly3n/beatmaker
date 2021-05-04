@@ -44,19 +44,20 @@
         <div class="kick-track">
           <div class="controls">
             <h2>Kick</h2>
-            <button class="mute kick-volume" data-track="kick">
-              <i class="fas fa-volume-mute"></i>
-            </button>
-            <!-- <div class="volume">
-              <input
-                type="range"
-                class="volume-slider"
-                min="0"
-                max="1"
-                value="1"
-              />
-              <p>volume: <span class="volume-num">1</span></p>
-            </div> -->
+            <div class="bg-gray-100 flex flex-col justify-center relative">
+                <button class="mute kick-volume group cursor-pointer relative inline-block border-b border-gray-400 text-center" data-track="kick">
+                      <i class="fas fa-volume-up"></i>
+                    <div class="opacity-0 w-32 bg-gray-300 text-white text-center
+                    text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
+                      <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20">
+                        <span class="text-center px-1 w-3">100</span>
+                      </div>
+                      <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
+                        <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                    </div>
+                  </button>
+              </div>
+              
             <button class="randomize kick-randomize" data-track="kick">
               <i class="fas fa-random"></i>
             </button>
@@ -87,9 +88,19 @@
         <div class="snare-track">
           <div class="controls">
             <h2>Snare</h2>
-            <button class="mute snare-volume" data-track="snare">
-              <i class="fas fa-volume-mute"></i>
-            </button>
+            <div class="bg-gray-100 flex flex-col justify-center relative">
+              <button class="mute snare-volume group cursor-pointer relative inline-block border-b border-gray-400 text-center" data-track="snare">
+                    <i class="fas fa-volume-up"></i>
+                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
+                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
+                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20">
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
+                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                  </div>
+                </button>
+            </div>
             <button class="randomize snare-randomize" data-track="snare">
               <i class="fas fa-random"></i>
             </button>
@@ -121,9 +132,19 @@
         <div class="hihat-track">
           <div class="controls">
             <h2>Hihat</h2>
-            <button class="mute hihat-volume" data-track="hihat">
-              <i class="fas fa-volume-mute"></i>
-            </button>
+            <div class="bg-gray-100 flex flex-col justify-center relative">
+              <button class="mute hihat-volume group cursor-pointer relative inline-block border-b border-gray-400 text-center" data-track="hihat">
+                    <i class="fas fa-volume-up"></i>
+                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
+                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
+                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20">
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
+                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                  </div>
+                </button>
+            </div>
             <button class="randomize hihat-randomize" data-track="hihat">
               <i class="fas fa-random"></i>
             </button>
@@ -155,9 +176,19 @@
         <div class="clap-track">
           <div class="controls">
             <h2>Clap</h2>
-            <button class="mute clap-volume" data-track="clap">
-              <i class="fas fa-volume-mute"></i>
-            </button>
+            <div class="bg-gray-100 flex flex-col justify-center relative">
+              <button class="mute clap-volume group cursor-pointer relative inline-block border-b border-gray-400 text-center" data-track="clap">
+                    <i class="fas fa-volume-up"></i>
+                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
+                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
+                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20">
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
+                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                  </div>
+                </button>
+            </div>
             <button class="randomize clap-randomize" data-track="clap">
               <i class="fas fa-random"></i>
             </button>
@@ -185,9 +216,19 @@
         <div class="effect-track">
           <div class="controls">
             <h2>Effect</h2>
-            <button class="mute effect-volume" data-track="effect">
-              <i class="fas fa-volume-mute"></i>
-            </button>
+            <div class="bg-gray-100 flex flex-col justify-center relative">
+              <button class="mute effect-volume group cursor-pointer relative inline-block border-b border-gray-400 text-center" data-track="effect">
+                    <i class="fas fa-volume-up"></i>
+                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
+                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
+                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20">
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
+                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                  </div>
+                </button>
+            </div>
             <button class="randomize effect-randomize" data-track="effect">
               <i class="fas fa-random"></i>
             </button>
@@ -319,6 +360,12 @@
             </div>
             <!--Body-->
             <div class="load-tracks">
+              
+              <div class="your-tracks">
+                <div class="load-header">Your tracks</div>
+                <hr />
+                <div class="your-tracks-content"></div>
+              </div>
               <div class="sample-tracks">
                 <div class="load-header">Sample tracks</div>
                 <hr />
@@ -332,11 +379,6 @@
                   <div class="sample-load-style bg-pink-200 hover:bg-pink-400 active:bg-pink-600">dance of lovers</div>
                 </div>
 
-              </div>
-              <div class="your-tracks">
-                <div class="load-header">Your tracks</div>
-                <hr />
-                <div class="your-tracks-content"></div>
               </div>
             </div>
           </div>
