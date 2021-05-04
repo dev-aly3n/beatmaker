@@ -230,30 +230,29 @@ class Drum {
     }
   }
 
-
   volume(e) {
-    const dataTrack = e.target.getAttribute('data-track');
-    const volume = e.target.value/100;
-    switch(dataTrack) {
-      case 'kick':
-      this.kickAudio.volume = volume;
-      break;
-      case 'snare':
-      this.snareAudio.volume = volume;
-      break;
-      case 'hihat':
-      this.hihatAudio.volume = volume;
-      break;
-      case 'clap':
-      this.clapAudio.volume = volume;
-      break;
-      case 'effect':
-      this.effectAudio.volume = volume;
-      break;
+    const dataTrack = e.target.getAttribute("data-track");
+    const volume = e.target.value / 100;
+    switch (dataTrack) {
+      case "kick":
+        this.kickAudio.volume = volume;
+        break;
+      case "snare":
+        this.snareAudio.volume = volume;
+        break;
+      case "hihat":
+        this.hihatAudio.volume = volume;
+        break;
+      case "clap":
+        this.clapAudio.volume = volume;
+        break;
+      case "effect":
+        this.effectAudio.volume = volume;
+        break;
     }
   }
 
-  volumeNum(e){
+  volumeNum(e) {
     let volumeNum = e.target.nextElementSibling;
     volumeNum.innerText = e.target.value;
   }
@@ -364,6 +363,11 @@ class Drum {
       el.classList.remove("new-save");
       newArr.push(el.outerHTML);
     });
+    newArr.push(document.querySelector(".effect-volume").value / 100);
+    newArr.push(document.querySelector(".clap-volume").value / 100);
+    newArr.push(document.querySelector(".hihat-volume").value / 100);
+    newArr.push(document.querySelector(".snare-volume").value / 100);
+    newArr.push(document.querySelector(".kick-volume").value / 100);
     newArr.push(document.querySelector("#kick-select").value);
     newArr.push(document.querySelector("#snare-select").value);
     newArr.push(document.querySelector("#hihat-select").value);
@@ -409,6 +413,36 @@ class Drum {
     this.snareAudio.src = snareSrc;
     let kickSrc = trackArray.pop();
     this.kickAudio.src = kickSrc;
+
+    let kickVolume = trackArray.pop();
+    this.kickAudio.volume = kickVolume;
+    document.querySelector(".kick-volume").value = kickVolume * 100;
+    document.querySelector(".kick-volume").nextElementSibling.innerText =
+      kickVolume * 100;
+
+    let snareVolume = trackArray.pop();
+    this.snareAudio.volume = snareVolume;
+    document.querySelector(".snare-volume").value = snareVolume * 100;
+    document.querySelector(".snare-volume").nextElementSibling.innerText =
+      snareVolume * 100;
+
+    let hihatVolume = trackArray.pop();
+    this.hihatAudio.volume = hihatVolume;
+    document.querySelector(".hihat-volume").value = hihatVolume * 100;
+    document.querySelector(".hihat-volume").nextElementSibling.innerText =
+      hihatVolume * 100;
+
+    let clapVolume = trackArray.pop();
+    this.clapAudio.volume = clapVolume;
+    document.querySelector(".clap-volume").value = clapVolume * 100;
+    document.querySelector(".clap-volume").nextElementSibling.innerText =
+      clapVolume * 100;
+
+    let effectVolume = trackArray.pop();
+    this.effectAudio.volume = effectVolume;
+    document.querySelector(".effect-volume").value = effectVolume * 100;
+    document.querySelector(".effect-volume").nextElementSibling.innerText =
+      effectVolume * 100;
 
     // change what the select showing to us
     document.querySelectorAll("select").forEach((select) => {
@@ -513,6 +547,11 @@ class Drum {
       "pad effect-pad b5",
       "pad effect-pad b6",
       "pad effect-pad b7",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick8.mp3",
       "./sounds/snare5.mp3",
       "./sounds/hihat4.mp3",
@@ -561,6 +600,11 @@ class Drum {
       "pad effect-pad b5",
       "pad effect-pad b6",
       "pad effect-pad b7",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick1.mp3",
       "./sounds/snare4.mp3",
       "./sounds/hihat7.mp3",
@@ -649,6 +693,11 @@ class Drum {
       "pad effect-pad b13",
       "pad effect-pad b14",
       "pad effect-pad b15",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick2.mp3",
       "./sounds/snare3.mp3",
       "./sounds/hihat2.mp3",
@@ -697,6 +746,11 @@ class Drum {
       "pad effect-pad b5",
       "pad effect-pad b6 active",
       "pad effect-pad b7",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick1.mp3",
       "./sounds/snare7.mp3",
       "./sounds/hihat6.mp3",
@@ -785,6 +839,11 @@ class Drum {
       "pad effect-pad b13",
       "pad effect-pad b14",
       "pad effect-pad b15",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick2.mp3",
       "./sounds/snare6.mp3",
       "./sounds/hihat9.mp3",
@@ -833,6 +892,11 @@ class Drum {
       "pad effect-pad b5",
       "pad effect-pad b6",
       "pad effect-pad b7",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick4.mp3",
       "./sounds/snare4.mp3",
       "./sounds/hihat1.mp3",
@@ -921,6 +985,11 @@ class Drum {
       "pad effect-pad b13 active",
       "pad effect-pad b14",
       "pad effect-pad b15",
+      1,
+      1,
+      1,
+      1,
+      1,
       "./sounds/kick3.mp3",
       "./sounds/snare5.mp3",
       "./sounds/hihat2.mp3",
@@ -970,6 +1039,36 @@ class Drum {
     this.snareAudio.src = snareSrc;
     let kickSrc = trackArray.pop();
     this.kickAudio.src = kickSrc;
+
+    let kickVolume = trackArray.pop();
+    this.kickAudio.volume = kickVolume;
+    document.querySelector(".kick-volume").value = kickVolume * 100;
+    document.querySelector(".kick-volume").nextElementSibling.innerText =
+      kickVolume * 100;
+
+    let snareVolume = trackArray.pop();
+    this.snareAudio.volume = snareVolume;
+    document.querySelector(".snare-volume").value = snareVolume * 100;
+    document.querySelector(".snare-volume").nextElementSibling.innerText =
+      snareVolume * 100;
+
+    let hihatVolume = trackArray.pop();
+    this.hihatAudio.volume = hihatVolume;
+    document.querySelector(".hihat-volume").value = hihatVolume * 100;
+    document.querySelector(".hihat-volume").nextElementSibling.innerText =
+      hihatVolume * 100;
+
+    let clapVolume = trackArray.pop();
+    this.clapAudio.volume = clapVolume;
+    document.querySelector(".clap-volume").value = clapVolume * 100;
+    document.querySelector(".clap-volume").nextElementSibling.innerText =
+      clapVolume * 100;
+
+    let effectVolume = trackArray.pop();
+    this.effectAudio.volume = effectVolume;
+    document.querySelector(".effect-volume").value = effectVolume * 100;
+    document.querySelector(".effect-volume").nextElementSibling.innerText =
+      effectVolume * 100;
 
     // change what the select showing to us
     document.querySelectorAll("select").forEach((select) => {
@@ -1077,16 +1176,14 @@ drum.selectS.forEach((select) => {
   });
 });
 
-
 drum.volumeBtnS.forEach((btn) => {
   btn.addEventListener("input", function (e) {
     drum.volume(e);
   });
-  btn.addEventListener('input', function(e){
-drum.volumeNum(e);
+  btn.addEventListener("input", function (e) {
+    drum.volumeNum(e);
   });
 });
-
 
 //changing the text of tempo slider in every moment
 drum.tempoSlider.addEventListener("input", function (e) {
@@ -1161,4 +1258,3 @@ drum.clearBtn.addEventListener("click", function () {
 });
 
 // console.log(document.querySelector('#kick-select').options[2])
-
