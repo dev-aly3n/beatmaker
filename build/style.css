@@ -603,12 +603,19 @@ nav {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
       0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
   font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgba(219, 234, 254, var(--tw-text-opacity));
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 
 .nav-links {
@@ -671,12 +678,6 @@ nav {
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1025px) {
-  body {
-    overflow-x: hidden;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .nav-links {
     width: 60%;
@@ -692,6 +693,7 @@ nav {
     flex-direction: column;
     align-items: stretch;
     position: absolute;
+    z-index: 50;
   }
 
   .nav-links li {
