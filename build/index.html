@@ -256,18 +256,29 @@
             <div class="pad effect-pad b9"></div>
           </div>
         </div>
-        <div class="general-controls">
-          <button class="save">Save</button>
 
-          <button class="load">Load</button>
-          <button class="play">Play</button>
-          <button class="randomize-all"><i class="fas fa-random"></i></button>
-          <button class="clear-all"><i class="fas fa-quidditch"></i></button>
-
-          <button class="decrease">-1</button>
-          <button class="increase">+1</button>
+        <div class="general-controls items-center">
+          <div class="flex flex-row items-center">
+          <div class="flex flex-row m-auto items-center">
+            <div class="flex flex-col">
+              <button class="increase m-auto mr-4 mb-1">+1</button>
+              <button class="decrease m-auto mr-4 -mb-5">-1</button>
+            </div>
+            <button class="play">Play</button>
         </div>
-        <div class="tempo">
+
+        <div class="flex flex-row">
+          <button class="clear-all"><i class="fas fa-quidditch"></i></button>
+          <button class="randomize-all mx-2"><i class="fas fa-random"></i></button>
+        </div>
+      </div>
+        <div class="flex flex-row">
+          <button class="save">Save</button>
+          <button class="load px-4 mx-2">Load/Samples</button>
+        </div>
+        </div>
+
+        <div class="tempo w-10/12 sm:w-120">
           <input
             type="range"
             class="tempo-slider"
