@@ -14,390 +14,584 @@
   </head>
 
   <body>
-    <section id="site-container" style="position: absolute; width: 100%; overflow-x: hidden">
-    <!-- top menu navbar -->
-    <section id="top-menu">
-      <nav id="navigation" class="navigation">
-        <div class="logo flex justify-around items-center">
-          <span class=" mx-5 cursor-pointer">
-            <i class="fab fa-napster fa-lg text-blue-200"></i>
-          </span>
-          <h1 class="logo">Aly3n Beat Maker</h1>
-        </div>
-        <ul class="nav-links navigation">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Top pieces</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Share</a></li>
-        </ul>
-        <div class="navigation burger cursor-pointer">
-          <div class="navigation line1"></div>
-          <div class="navigation line2"></div>
-          <div class="navigation line3"></div>
-        </div>
-      </nav>
-    </section>
+    <section
+      id="site-container"
+      style="position: absolute; width: 100%; overflow-x: hidden"
+    >
+      <!-- top menu navbar -->
+      <section id="top-menu">
+        <nav id="navigation" class="navigation">
+          <div class="logo flex justify-around items-center">
+            <span class="mx-5 cursor-pointer">
+              <i class="fab fa-napster fa-lg text-blue-200"></i>
+            </span>
+            <h1 class="logo">Aly3n Beat Maker</h1>
+          </div>
+          <ul class="nav-links navigation">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Top pieces</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Share</a></li>
+          </ul>
+          <div class="navigation burger cursor-pointer">
+            <div class="navigation line1"></div>
+            <div class="navigation line2"></div>
+            <div class="navigation line3"></div>
+          </div>
+        </nav>
+      </section>
 
-    <!-- beat app section -->
-    <section id="beat-section">
-      <div class="beat-container">
-        <div class="kick-track">
-          <div class="controls">
-            <h2>Kick</h2>
-            <div class="bg-gray-100 flex flex-col justify-center relative">
-                <button class="group cursor-pointer relative inline-block border-b border-gray-400 text-center" >
-                      <i class="fas fa-volume-up"></i>
-                    <div class="opacity-0 w-32 bg-gray-300 text-white text-center
-                    text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
-                      <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20 volume kick-volume" data-track="kick">
-                        <span class="text-center px-1 w-3">100</span>
-                      </div>
-                      <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                        <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                    </div>
-                  </button>
-              </div>
-              
-            <button class="randomize kick-randomize" data-track="kick">
-              <i class="fas fa-random"></i>
-            </button>
-            <select name="kick-select" id="kick-select">
-              <option value="./sounds/kick1.mp3">kick1</option>
-              <option value="./sounds/kick2.mp3">kick2</option>
-              <option value="./sounds/kick3.mp3">kick3</option>
-              <option value="./sounds/kick4.mp3">kick4</option>
-              <option value="./sounds/kick5.mp3">kick5</option>
-              <option value="./sounds/kick6.mp3">kick6</option>
-              <option value="./sounds/kick7.mp3">kick7</option>
-              <option value="./sounds/kick8.mp3" selected>kick8</option>
-            </select>
-          </div>
-          <div class="kick track" data-track="kick">
-            <div class="pad kick-pad b0"></div>
-            <div class="pad kick-pad b1"></div>
-            <div class="pad kick-pad b2"></div>
-            <div class="pad kick-pad b3"></div>
-            <div class="pad kick-pad b4"></div>
-            <div class="pad kick-pad b5"></div>
-            <div class="pad kick-pad b6"></div>
-            <div class="pad kick-pad b7"></div>
-            <div class="pad kick-pad b8"></div>
-            <div class="pad kick-pad b9"></div>
-          </div>
-        </div>
-        <div class="snare-track">
-          <div class="controls">
-            <h2>Snare</h2>
-            <div class="bg-gray-100 flex flex-col justify-center relative">
-              <button class="  group cursor-pointer relative inline-block border-b border-gray-400 text-center" >
-                    <i class="fas fa-volume-up"></i>
-                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
-                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
-                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20 volume snare-volume" data-track="snare">
-                      <span class="text-center px-1 w-3">100</span>
-                    </div>
-                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                  </div>
-                </button>
-            </div>
-            <button class="randomize snare-randomize" data-track="snare">
-              <i class="fas fa-random"></i>
-            </button>
-            <select name="snare-select" id="snare-select">
-              <option value="./sounds/snare1.mp3">snare1</option>
-              <option value="./sounds/snare2.mp3">snare2</option>
-              <option value="./sounds/snare3.mp3">snare3</option>
-              <option value="./sounds/snare4.mp3">snare4</option>
-              <option value="./sounds/snare5.mp3">snare5</option>
-              <option value="./sounds/snare6.mp3">snare6</option>
-              <option value="./sounds/snare7.mp3">snare7</option>
-              <option value="./sounds/snare8.mp3">snare8</option>
-              <option value="./sounds/snare9.mp3" selected>snare9</option>
-            </select>
-          </div>
-          <div class="snare track" data-track="snare">
-            <div class="pad snare-pad b0"></div>
-            <div class="pad snare-pad b1"></div>
-            <div class="pad snare-pad b2"></div>
-            <div class="pad snare-pad b3"></div>
-            <div class="pad snare-pad b4"></div>
-            <div class="pad snare-pad b5"></div>
-            <div class="pad snare-pad b6"></div>
-            <div class="pad snare-pad b7"></div>
-            <div class="pad snare-pad b8"></div>
-            <div class="pad snare-pad b9"></div>
-          </div>
-        </div>
-        <div class="hihat-track">
-          <div class="controls">
-            <h2>Hihat</h2>
-            <div class="bg-gray-100 flex flex-col justify-center relative">
-              <button class="  group cursor-pointer relative inline-block border-b border-gray-400 text-center" >
-                    <i class="fas fa-volume-up"></i>
-                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
-                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
-                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20 volume hihat-volume" data-track="hihat">
-                      <span class="text-center px-1 w-3">100</span>
-                    </div>
-                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                  </div>
-                </button>
-            </div>
-            <button class="randomize hihat-randomize" data-track="hihat">
-              <i class="fas fa-random"></i>
-            </button>
-            <select name="hihat-select" id="hihat-select">
-              <option value="./sounds/hihat1.mp3">hihat1</option>
-              <option value="./sounds/hihat2.mp3">hihat2</option>
-              <option value="./sounds/hihat3.mp3">hihat3</option>
-              <option value="./sounds/hihat4.mp3" selected>hihat4</option>
-              <option value="./sounds/hihat5.mp3">hihat5</option>
-              <option value="./sounds/hihat6.mp3">hihat6</option>
-              <option value="./sounds/hihat7.mp3">hihat7</option>
-              <option value="./sounds/hihat8.mp3">hihat8</option>
-              <option value="./sounds/hihat9.mp3">hihat9</option>
-            </select>
-          </div>
-          <div class="hihat track" data-track="hihat">
-            <div class="pad hihat-pad b0"></div>
-            <div class="pad hihat-pad b1"></div>
-            <div class="pad hihat-pad b2"></div>
-            <div class="pad hihat-pad b3"></div>
-            <div class="pad hihat-pad b4"></div>
-            <div class="pad hihat-pad b5"></div>
-            <div class="pad hihat-pad b6"></div>
-            <div class="pad hihat-pad b7"></div>
-            <div class="pad hihat-pad b8"></div>
-            <div class="pad hihat-pad b9"></div>
-          </div>
-        </div>
-        <div class="clap-track">
-          <div class="controls">
-            <h2>Clap</h2>
-            <div class="bg-gray-100 flex flex-col justify-center relative">
-              <button class="  group cursor-pointer relative inline-block border-b border-gray-400 text-center" >
-                    <i class="fas fa-volume-up"></i>
-                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
-                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
-                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20 volume clap-volume" data-track="clap">
-                      <span class="text-center px-1 w-3">100</span>
-                    </div>
-                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                  </div>
-                </button>
-            </div>
-            <button class="randomize clap-randomize" data-track="clap">
-              <i class="fas fa-random"></i>
-            </button>
-            <select name="clap-select" id="clap-select">
-              <option value="./sounds/clap1.mp3" selected>clap1</option>
-              <option value="./sounds/clap2.mp3">clap2</option>
-              <option value="./sounds/clap3.mp3">clap3</option>
-              <option value="./sounds/clap4.mp3">clap4</option>
-              <option value="./sounds/clap5.mp3">clap5</option>
-            </select>
-          </div>
-          <div class="clap track" data-track="clap">
-            <div class="pad clap-pad b0"></div>
-            <div class="pad clap-pad b1"></div>
-            <div class="pad clap-pad b2"></div>
-            <div class="pad clap-pad b3"></div>
-            <div class="pad clap-pad b4"></div>
-            <div class="pad clap-pad b5"></div>
-            <div class="pad clap-pad b6"></div>
-            <div class="pad clap-pad b7"></div>
-            <div class="pad clap-pad b8"></div>
-            <div class="pad clap-pad b9"></div>
-          </div>
-        </div>
-        <div class="effect-track">
-          <div class="controls">
-            <h2>Effect</h2>
-            <div class="bg-gray-100 flex flex-col justify-center relative">
-              <button class="  group cursor-pointer relative inline-block border-b border-gray-400 text-center" >
-                    <i class="fas fa-volume-up"></i>
-                  <div class="opacity-0 w-32 bg-gray-300 text-white text-center
-                  text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14">
-                    <div class="flex flex-row text-black"><input type="range" min="0" max="100" value="100" class="w-20 volume effect-volume" data-track="effect">
-                      <span class="text-center px-1 w-3">100</span>
-                    </div>
-                    <svg class="absolute text-gray-300 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                      <polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                  </div>
-                </button>
-            </div>
-            <button class="randomize effect-randomize" data-track="effect">
-              <i class="fas fa-random"></i>
-            </button>
-            <select name="effect-select" id="effect-select">
-              <option value="./sounds/effect1.mp3">effect1</option>
-              <option value="./sounds/effect2.mp3">effect2</option>
-              <option value="./sounds/effect3.mp3">effect3</option>
-              <option value="./sounds/effect4.mp3">effect4</option>
-              <option value="./sounds/effect5.mp3">effect5</option>
-              <option value="./sounds/effect6.mp3">effect6</option>
-              <option value="./sounds/effect7.mp3" selected>effect7</option>
-            </select>
-          </div>
-          <div class="effect track" data-track="effect">
-            <div class="pad effect-pad b0"></div>
-            <div class="pad effect-pad b1"></div>
-            <div class="pad effect-pad b2"></div>
-            <div class="pad effect-pad b3"></div>
-            <div class="pad effect-pad b4"></div>
-            <div class="pad effect-pad b5"></div>
-            <div class="pad effect-pad b6"></div>
-            <div class="pad effect-pad b7"></div>
-            <div class="pad effect-pad b8"></div>
-            <div class="pad effect-pad b9"></div>
-          </div>
-        </div>
-
-        <div class="general-controls items-center">
-          <div class="flex flex-row items-center">
-          <div class="flex flex-row m-auto items-center">
-            <div class="flex flex-col">
-              <button class="increase m-auto mr-4 mb-1">+1</button>
-              <button class="decrease m-auto mr-4 -mb-5">-1</button>
-            </div>
-            <button class="play">Play</button>
-        </div>
-
-        <div class="flex flex-row">
-          <button class="clear-all"><i class="fas fa-quidditch"></i></button>
-          <button class="randomize-all mx-2"><i class="fas fa-random"></i></button>
-        </div>
-      </div>
-        <div class="flex flex-row">
-          <button class="save">Save</button>
-          <button class="load px-4 mx-2">Load/Samples</button>
-        </div>
-        </div>
-
-        <div class="tempo w-10/12 sm:w-120">
-          <input
-            type="range"
-            class="tempo-slider"
-            min="50"
-            max="300"
-            value="150"
-          />
-          <p>Tempo: <span class="tempo-num">150</span></p>
-        </div>
-      </div>
-
-      <audio class="kick-sound" src="./sounds/kick8.mp3"></audio>
-      <audio class="snare-sound" src="./sounds/snare9.mp3" volume="0.2"></audio>
-      <audio class="hihat-sound" src="./sounds/hihat4.mp3"></audio>
-      <audio class="clap-sound" src="./sounds/clap1.mp3"></audio>
-      <audio class="effect-sound" src="./sounds/effect7.mp3"></audio>
-    </section>
-
-    <!-- pop-up form for saving -->
-    <section id="modalsave">
-      <div class="main-modal">
-        <div class="modal-container">
-          <div class="modal-content">
-            <!--Title-->
-            <div class="flex justify-between items-center pb-3">
-              <h2 class="text-xl font-bold w-96">
-                Choose a Name for your Track
-              </h2>
-
-              <div class="modal-close cursor-pointer z-50">
-                <svg
-                  class="fill-current text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <p class="saving-error">Name's field is empty!</p>
-            <!--Body-->
-            <div class="my-5">
-              <form action="#" class="flex flex-col">
-                <input
-                  type="text"
-                  placeholder="Enter a name..."
-                  id="saved-name"
-                  maxlength="21"
-                />
+      <!-- beat app section -->
+      <section id="beat-section">
+        <div class="beat-container">
+          <div class="kick-track">
+            <div class="controls">
+              <h2>Kick</h2>
+              <div class="bg-gray-100 flex flex-col justify-center relative">
                 <button
-                  type="submit"
-                  id="save-btn-form"
-                  href="javascript:void(0);"
+                  class="group cursor-pointer relative inline-block border-b border-gray-400 text-center"
                 >
-                  Save
+                  <i class="fas fa-volume-up"></i>
+                  <div
+                    class="opacity-0 w-32 bg-gray-300 text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14"
+                  >
+                    <div class="flex flex-row text-black">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        class="w-20 volume kick-volume"
+                        data-track="kick"
+                      />
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg
+                      class="absolute text-gray-300 h-2 w-full left-0 top-full"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 255 255"
+                      xml:space="preserve"
+                    >
+                      <polygon
+                        class="fill-current"
+                        points="0,0 127.5,127.5 255,0"
+                      />
+                    </svg>
+                  </div>
                 </button>
-              </form>
+              </div>
+
+              <button class="randomize kick-randomize" data-track="kick">
+                <i class="fas fa-random"></i>
+              </button>
+              <select name="kick-select" id="kick-select">
+                <option value="./sounds/kick1.mp3">kick1</option>
+                <option value="./sounds/kick2.mp3">kick2</option>
+                <option value="./sounds/kick3.mp3">kick3</option>
+                <option value="./sounds/kick4.mp3">kick4</option>
+                <option value="./sounds/kick5.mp3">kick5</option>
+                <option value="./sounds/kick6.mp3">kick6</option>
+                <option value="./sounds/kick7.mp3">kick7</option>
+                <option value="./sounds/kick8.mp3" selected>kick8</option>
+              </select>
+            </div>
+            <div class="kick track" data-track="kick">
+              <div class="pad kick-pad b0"></div>
+              <div class="pad kick-pad b1"></div>
+              <div class="pad kick-pad b2"></div>
+              <div class="pad kick-pad b3"></div>
+              <div class="pad kick-pad b4"></div>
+              <div class="pad kick-pad b5"></div>
+              <div class="pad kick-pad b6"></div>
+              <div class="pad kick-pad b7"></div>
+              <div class="pad kick-pad b8"></div>
+              <div class="pad kick-pad b9"></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- pop-up form for loading -->
-    <section id="modalload">
-      <div class="main-modal-load">
-        <div class="modal-container-load">
-          <div class="modal-content-load">
-            <!--Title-->
-            <div class="flex justify-between items-center pb-3">
-              <h2 class="text-xl font-bold text-center m-auto w-11/12">
-                Choose a Track to Load
-              </h2>
-              <div class="modal-close-load cursor-pointer z-50">
-                <svg
-                  class="fill-current text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
+          <div class="snare-track">
+            <div class="controls">
+              <h2>Snare</h2>
+              <div class="bg-gray-100 flex flex-col justify-center relative">
+                <button
+                  class="group cursor-pointer relative inline-block border-b border-gray-400 text-center"
                 >
-                  <path
-                    d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
-                  ></path>
-                </svg>
+                  <i class="fas fa-volume-up"></i>
+                  <div
+                    class="opacity-0 w-32 bg-gray-300 text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14"
+                  >
+                    <div class="flex flex-row text-black">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        class="w-20 volume snare-volume"
+                        data-track="snare"
+                      />
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg
+                      class="absolute text-gray-300 h-2 w-full left-0 top-full"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 255 255"
+                      xml:space="preserve"
+                    >
+                      <polygon
+                        class="fill-current"
+                        points="0,0 127.5,127.5 255,0"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <button class="randomize snare-randomize" data-track="snare">
+                <i class="fas fa-random"></i>
+              </button>
+              <select name="snare-select" id="snare-select">
+                <option value="./sounds/snare1.mp3">snare1</option>
+                <option value="./sounds/snare2.mp3">snare2</option>
+                <option value="./sounds/snare3.mp3">snare3</option>
+                <option value="./sounds/snare4.mp3">snare4</option>
+                <option value="./sounds/snare5.mp3">snare5</option>
+                <option value="./sounds/snare6.mp3">snare6</option>
+                <option value="./sounds/snare7.mp3">snare7</option>
+                <option value="./sounds/snare8.mp3">snare8</option>
+                <option value="./sounds/snare9.mp3" selected>snare9</option>
+              </select>
+            </div>
+            <div class="snare track" data-track="snare">
+              <div class="pad snare-pad b0"></div>
+              <div class="pad snare-pad b1"></div>
+              <div class="pad snare-pad b2"></div>
+              <div class="pad snare-pad b3"></div>
+              <div class="pad snare-pad b4"></div>
+              <div class="pad snare-pad b5"></div>
+              <div class="pad snare-pad b6"></div>
+              <div class="pad snare-pad b7"></div>
+              <div class="pad snare-pad b8"></div>
+              <div class="pad snare-pad b9"></div>
+            </div>
+          </div>
+          <div class="hihat-track">
+            <div class="controls">
+              <h2>Hihat</h2>
+              <div class="bg-gray-100 flex flex-col justify-center relative">
+                <button
+                  class="group cursor-pointer relative inline-block border-b border-gray-400 text-center"
+                >
+                  <i class="fas fa-volume-up"></i>
+                  <div
+                    class="opacity-0 w-32 bg-gray-300 text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14"
+                  >
+                    <div class="flex flex-row text-black">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        class="w-20 volume hihat-volume"
+                        data-track="hihat"
+                      />
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg
+                      class="absolute text-gray-300 h-2 w-full left-0 top-full"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 255 255"
+                      xml:space="preserve"
+                    >
+                      <polygon
+                        class="fill-current"
+                        points="0,0 127.5,127.5 255,0"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <button class="randomize hihat-randomize" data-track="hihat">
+                <i class="fas fa-random"></i>
+              </button>
+              <select name="hihat-select" id="hihat-select">
+                <option value="./sounds/hihat1.mp3">hihat1</option>
+                <option value="./sounds/hihat2.mp3">hihat2</option>
+                <option value="./sounds/hihat3.mp3">hihat3</option>
+                <option value="./sounds/hihat4.mp3" selected>hihat4</option>
+                <option value="./sounds/hihat5.mp3">hihat5</option>
+                <option value="./sounds/hihat6.mp3">hihat6</option>
+                <option value="./sounds/hihat7.mp3">hihat7</option>
+                <option value="./sounds/hihat8.mp3">hihat8</option>
+                <option value="./sounds/hihat9.mp3">hihat9</option>
+              </select>
+            </div>
+            <div class="hihat track" data-track="hihat">
+              <div class="pad hihat-pad b0"></div>
+              <div class="pad hihat-pad b1"></div>
+              <div class="pad hihat-pad b2"></div>
+              <div class="pad hihat-pad b3"></div>
+              <div class="pad hihat-pad b4"></div>
+              <div class="pad hihat-pad b5"></div>
+              <div class="pad hihat-pad b6"></div>
+              <div class="pad hihat-pad b7"></div>
+              <div class="pad hihat-pad b8"></div>
+              <div class="pad hihat-pad b9"></div>
+            </div>
+          </div>
+          <div class="clap-track">
+            <div class="controls">
+              <h2>Clap</h2>
+              <div class="bg-gray-100 flex flex-col justify-center relative">
+                <button
+                  class="group cursor-pointer relative inline-block border-b border-gray-400 text-center"
+                >
+                  <i class="fas fa-volume-up"></i>
+                  <div
+                    class="opacity-0 w-32 bg-gray-300 text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14"
+                  >
+                    <div class="flex flex-row text-black">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        class="w-20 volume clap-volume"
+                        data-track="clap"
+                      />
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg
+                      class="absolute text-gray-300 h-2 w-full left-0 top-full"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 255 255"
+                      xml:space="preserve"
+                    >
+                      <polygon
+                        class="fill-current"
+                        points="0,0 127.5,127.5 255,0"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <button class="randomize clap-randomize" data-track="clap">
+                <i class="fas fa-random"></i>
+              </button>
+              <select name="clap-select" id="clap-select">
+                <option value="./sounds/clap1.mp3" selected>clap1</option>
+                <option value="./sounds/clap2.mp3">clap2</option>
+                <option value="./sounds/clap3.mp3">clap3</option>
+                <option value="./sounds/clap4.mp3">clap4</option>
+                <option value="./sounds/clap5.mp3">clap5</option>
+              </select>
+            </div>
+            <div class="clap track" data-track="clap">
+              <div class="pad clap-pad b0"></div>
+              <div class="pad clap-pad b1"></div>
+              <div class="pad clap-pad b2"></div>
+              <div class="pad clap-pad b3"></div>
+              <div class="pad clap-pad b4"></div>
+              <div class="pad clap-pad b5"></div>
+              <div class="pad clap-pad b6"></div>
+              <div class="pad clap-pad b7"></div>
+              <div class="pad clap-pad b8"></div>
+              <div class="pad clap-pad b9"></div>
+            </div>
+          </div>
+          <div class="effect-track">
+            <div class="controls">
+              <h2>Effect</h2>
+              <div class="bg-gray-100 flex flex-col justify-center relative">
+                <button
+                  class="group cursor-pointer relative inline-block border-b border-gray-400 text-center"
+                >
+                  <i class="fas fa-volume-up"></i>
+                  <div
+                    class="opacity-0 w-32 bg-gray-300 text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full px-3 -ml-14"
+                  >
+                    <div class="flex flex-row text-black">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        class="w-20 volume effect-volume"
+                        data-track="effect"
+                      />
+                      <span class="text-center px-1 w-3">100</span>
+                    </div>
+                    <svg
+                      class="absolute text-gray-300 h-2 w-full left-0 top-full"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 255 255"
+                      xml:space="preserve"
+                    >
+                      <polygon
+                        class="fill-current"
+                        points="0,0 127.5,127.5 255,0"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <button class="randomize effect-randomize" data-track="effect">
+                <i class="fas fa-random"></i>
+              </button>
+              <select name="effect-select" id="effect-select">
+                <option value="./sounds/effect1.mp3">effect1</option>
+                <option value="./sounds/effect2.mp3">effect2</option>
+                <option value="./sounds/effect3.mp3">effect3</option>
+                <option value="./sounds/effect4.mp3">effect4</option>
+                <option value="./sounds/effect5.mp3">effect5</option>
+                <option value="./sounds/effect6.mp3">effect6</option>
+                <option value="./sounds/effect7.mp3" selected>effect7</option>
+              </select>
+            </div>
+            <div class="effect track" data-track="effect">
+              <div class="pad effect-pad b0"></div>
+              <div class="pad effect-pad b1"></div>
+              <div class="pad effect-pad b2"></div>
+              <div class="pad effect-pad b3"></div>
+              <div class="pad effect-pad b4"></div>
+              <div class="pad effect-pad b5"></div>
+              <div class="pad effect-pad b6"></div>
+              <div class="pad effect-pad b7"></div>
+              <div class="pad effect-pad b8"></div>
+              <div class="pad effect-pad b9"></div>
+            </div>
+          </div>
+
+          <div class="general-controls items-center">
+            <div class="flex flex-col md:flex-row items-center">
+              <div class="flex flex-row m-auto items-center">
+                <div class="flex flex-col">
+                  <button class="increase m-auto mr-4 mb-1">+1</button>
+                  <button class="decrease m-auto mr-4 -mb-5">-1</button>
+                </div>
+                <button class="play">Play</button>
+              </div>
+
+              <div class="flex flex-row">
+                <button class="clear-all">
+                  <i class="fas fa-quidditch"></i>
+                </button>
+                <button class="randomize-all mx-2">
+                  <i class="fas fa-random"></i>
+                </button>
               </div>
             </div>
-            <!--Body-->
-            <div class="load-tracks">
-              
-              <div class="your-tracks">
-                <div class="load-header">Your tracks</div>
-                <hr />
-                <div class="your-tracks-content"></div>
-              </div>
-              <div class="sample-tracks">
-                <div class="load-header">Sample tracks</div>
-                <hr />
-                <div class="sample-tracks-content">
-                  <div class="sample-load-style bg-blue-200 hover:bg-blue-400 active:bg-blue-600">we will rock you</div>
-                  <div class="sample-load-style bg-purple-200 hover:bg-purple-400 active:bg-purple-600">hip hop 6&8</div>
-                  <div class="sample-load-style bg-pink-200 hover:bg-pink-400 active:bg-pink-600">heart of Atefeh</div>
-                  <div class="sample-load-style bg-yellow-200 hover:bg-green-400 active:bg-green-600">try again</div>
-                  <div class="sample-load-style bg-red-200 hover:bg-red-400 active:bg-red-600">crazy developer</div>
-                  <div class="sample-load-style bg-green-200 hover:bg-green-400 active:bg-green-600">maya's wedding</div>
-                  <div class="sample-load-style bg-pink-200 hover:bg-pink-400 active:bg-pink-600">dance of lovers</div>
-                </div>
+            <div class="flex flex-row">
+              <button class="save">Save</button>
+              <button class="load px-4 mx-2">Load/Samples</button>
+            </div>
+          </div>
 
+          <div class="tempo w-10/12 sm:w-120">
+            <input
+              type="range"
+              class="tempo-slider"
+              min="50"
+              max="300"
+              value="150"
+            />
+            <p>Tempo: <span class="tempo-num">150</span></p>
+          </div>
+        </div>
+
+        <audio class="kick-sound" src="./sounds/kick8.mp3"></audio>
+        <audio
+          class="snare-sound"
+          src="./sounds/snare9.mp3"
+          volume="0.2"
+        ></audio>
+        <audio class="hihat-sound" src="./sounds/hihat4.mp3"></audio>
+        <audio class="clap-sound" src="./sounds/clap1.mp3"></audio>
+        <audio class="effect-sound" src="./sounds/effect7.mp3"></audio>
+      </section>
+
+      <!-- pop-up form for saving -->
+      <section id="modalsave">
+        <div class="main-modal">
+          <div class="modal-container">
+            <div class="modal-content">
+              <!--Title-->
+              <div class="flex justify-between items-center pb-3">
+                <h2 class="text-xl font-bold w-96">
+                  Choose a Name for your Track
+                </h2>
+
+                <div class="modal-close cursor-pointer z-50">
+                  <svg
+                    class="fill-current text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <p class="saving-error">Name's field is empty!</p>
+              <!--Body-->
+              <div class="my-5">
+                <form action="#" class="flex flex-col">
+                  <input
+                    type="text"
+                    placeholder="Enter a name..."
+                    id="saved-name"
+                    maxlength="21"
+                  />
+                  <button
+                    type="submit"
+                    id="save-btn-form"
+                    href="javascript:void(0);"
+                  >
+                    Save
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- pop-up form for loading -->
+      <section id="modalload">
+        <div class="main-modal-load">
+          <div class="modal-container-load">
+            <div class="modal-content-load">
+              <!--Title-->
+              <div class="flex justify-between items-center pb-3">
+                <h2 class="text-xl font-bold text-center m-auto w-11/12">
+                  Choose a Track to Load
+                </h2>
+                <div class="modal-close-load cursor-pointer z-50">
+                  <svg
+                    class="fill-current text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <!--Body-->
+              <div class="load-tracks">
+                <div class="your-tracks">
+                  <div class="load-header">Your tracks</div>
+                  <hr />
+                  <div class="your-tracks-content"></div>
+                </div>
+                <div class="sample-tracks">
+                  <div class="load-header">Sample tracks</div>
+                  <hr />
+                  <div class="sample-tracks-content">
+                    <div
+                      class="sample-load-style bg-blue-200 hover:bg-blue-400 active:bg-blue-600"
+                    >
+                      we will rock you
+                    </div>
+                    <div
+                      class="sample-load-style bg-purple-200 hover:bg-purple-400 active:bg-purple-600"
+                    >
+                      hip hop 6&8
+                    </div>
+                    <div
+                      class="sample-load-style bg-pink-200 hover:bg-pink-400 active:bg-pink-600"
+                    >
+                      heart of Atefeh
+                    </div>
+                    <div
+                      class="sample-load-style bg-yellow-200 hover:bg-green-400 active:bg-green-600"
+                    >
+                      try again
+                    </div>
+                    <div
+                      class="sample-load-style bg-red-200 hover:bg-red-400 active:bg-red-600"
+                    >
+                      crazy developer
+                    </div>
+                    <div
+                      class="sample-load-style bg-green-200 hover:bg-green-400 active:bg-green-600"
+                    >
+                      maya's wedding
+                    </div>
+                    <div
+                      class="sample-load-style bg-pink-200 hover:bg-pink-400 active:bg-pink-600"
+                    >
+                      dance of lovers
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- modal for confirm clearing -->
+      <section id="modalconfirm">
+        <div class="main-modal main-modal-confirm">
+          <div class="modal-container">
+            <div class="modal-content">
+              <!--Title-->
+              <div class="flex justify-between items-center pb-3 float-right">
+                <div
+                  class="modal-close modal-close-confirm cursor-pointer z-50"
+                >
+                  <svg
+                    class="fill-current text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                  >
+                    <path
+                      d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <!--Body-->
+              <h2 class="text-xl font-bold w-96">
+                Are you sure? The stage will be clearing if you confirm!
+              </h2>
+              <div class="my-5">
+                <form action="#" class="flex flex-col sm:flex-row m-auto">
+                  <button
+                    type="submit"
+                    id="cancel-clear"
+                    href="javascript:void(0);"
+                    class="m-auto text-xl font-medium p-3 w-44 bg-gray-200 hover:bg-gray-400 active:bg-gray-600 active:text-white"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    id="confirm-clear"
+                    href="javascript:void(0);"
+                    class="m-auto text-xl font-medium p-3 w-44 bg-red-200 hover:bg-red-400 active:bg-red-600 active:text-white mt-1 sm:mt-0"
+                  >
+                    Confirm!
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
-  </section>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="

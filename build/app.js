@@ -101,6 +101,41 @@ window.addEventListener("click", function (e) {
 
 // modal form for loading finish here
 
+// modal for confirm clearing start here
+// modal form for saving start here
+
+const modalConfirm = document.querySelector(".main-modal-confirm");
+const modalConfirmCloseBtn = document.querySelector(".modal-close-confirm");
+
+function modalConfirmClose() {
+  modalConfirm.classList.remove("fadeIn");
+  modalConfirm.classList.add("fadeOut");
+  setTimeout(() => {
+    modalConfirm.style.display = "none";
+  }, 800);
+}
+
+document.querySelector(".clear-all").addEventListener("click", function () {
+  modalConfirm.classList.remove("fadeOut");
+  modalConfirm.classList.add("fadeIn");
+  modalConfirm.style.display = "flex";
+});
+
+modalConfirmCloseBtn.addEventListener("click", function (e) {
+  // e.preventDefault();
+  modalConfirmClose();
+});
+
+window.addEventListener("click", function (e) {
+  // e.preventDefault();
+  if (e.target == modalConfirm) {
+    modalConfirmClose();
+  }
+});
+
+// modal form for saving finish here
+// modal for confirm clearing finish here
+
 //drum app start here
 
 class Drum {
@@ -128,7 +163,8 @@ class Drum {
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
     this.saveBtn = document.querySelector("#save-btn-form");
-    this.clearBtn = document.querySelector(".clear-all");
+    this.clearBtn = document.querySelector('#confirm-clear')
+  
   }
 
   // return true/false doe to the random number is odd or not
@@ -1252,8 +1288,14 @@ drum.saveBtn.addEventListener("click", function (e) {
   });
 }
 
-drum.clearBtn.addEventListener("click", function () {
+drum.clearBtn.addEventListener("click", function (e) {
+  e.preventDefault();
   drum.clearActive();
+  modalConfirmClose();
+});
+document.querySelector('#cancel-clear').addEventListener('click', function(e){
+  e.preventDefault();
+modalConfirmClose();
 });
 
 // console.log(document.querySelector('#kick-select').options[2])
