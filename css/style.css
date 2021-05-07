@@ -209,7 +209,8 @@
   }
 
   #save-btn-form {
-    @apply bg-green-400 mt-3 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900;
+    @apply bg-green-200 mt-3 border-gray-600 p-3 rounded-lg ring-1 ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900
+    hover:bg-green-400 active:bg-green-600 active:text-white;
   }
 
   .saving-error {

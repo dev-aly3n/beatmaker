@@ -514,7 +514,7 @@ class Drum {
     //so first we calculate the number of pad in every row
     let loadLength = trackArray.length;
     let lengthDiffrence = (loadLength - pads.length) / 5;
-//then we check if the pads are more than the loaded one we call the increasePad() method by a for loop and same for less pad than loaded one
+    //then we check if the pads are more than the loaded one we call the increasePad() method by a for loop and same for less pad than loaded one
     if (lengthDiffrence > 0) {
       for (let i = lengthDiffrence; i > 0; i--) {
         this.increasePad();
@@ -669,7 +669,7 @@ class Drum {
       "./sounds/effect7.mp3",
       300,
     ];
-// Atefeh is my girlfriend and all of these sample songs created by her. she is a good musician. her musical instrument is Daf.
+    // Atefeh is my girlfriend and all of these sample songs created by her. she is a good musician. her musical instrument is Daf.
     const heartOfAtefeh = [
       "pad kick-pad b0 active",
       "pad kick-pad b1",
@@ -1060,7 +1060,7 @@ class Drum {
     pads.forEach((pad) => {
       pad.classList.remove("active");
     });
-    
+
     //one of deffrence between this method and load method
     //we get clicked name and evaluate by a Switch then we assign the right sample to trackArray and the rest of things are same as load method
     let trackArray;
@@ -1282,10 +1282,10 @@ drum.saveBtn.addEventListener("click", function (e) {
   const duplicateError = document.querySelector(".duplicate");
   let trackName = document.querySelector("#saved-name");
   let duplicate = false;
-  
+
   for (let i = 0; i < localStorage.length; i++) {
     const trackFromLS = localStorage.key(i);
-    if(trackName.value == trackFromLS){
+    if (trackName.value == trackFromLS) {
       duplicate = true;
     }
   }
@@ -1293,17 +1293,14 @@ drum.saveBtn.addEventListener("click", function (e) {
     modalClose();
     drum.save(trackName.value);
     trackName.value = "";
-
-  } else if(duplicate){
-    duplicateError.style.display = 'block';
-  }
-  
-  else {
+  } else if (duplicate) {
+    duplicateError.style.display = "block";
+  } else {
     savingError.style.display = "block";
   }
   setTimeout(() => {
     savingError.style.display = "none";
-    duplicateError.style.display = 'none';
+    duplicateError.style.display = "none";
   }, 4000);
 });
 
