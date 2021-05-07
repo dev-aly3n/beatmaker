@@ -40,6 +40,7 @@ navSlide();
 const modal = document.querySelector(".main-modal");
 const modalCloseBtn = document.querySelector(".modal-close");
 
+//closing modal
 function modalClose() {
   modal.classList.remove("fadeIn");
   modal.classList.add("fadeOut");
@@ -47,7 +48,7 @@ function modalClose() {
     modal.style.display = "none";
   }, 800);
 }
-
+//openning modal
 document.querySelector(".save").addEventListener("click", function () {
   modal.classList.remove("fadeOut");
   modal.classList.add("fadeIn");
@@ -55,12 +56,10 @@ document.querySelector(".save").addEventListener("click", function () {
 });
 
 modalCloseBtn.addEventListener("click", function (e) {
-  // e.preventDefault();
   modalClose();
 });
 
 window.addEventListener("click", function (e) {
-  // e.preventDefault();
   if (e.target == modal) {
     modalClose();
   }
@@ -88,12 +87,10 @@ document.querySelector(".load").addEventListener("click", function () {
 });
 
 modalLoadCloseBtn.addEventListener("click", function (e) {
-  // e.preventDefault();
   modalCloseLoad();
 });
 
 window.addEventListener("click", function (e) {
-  // e.preventDefault();
   if (e.target == modalLoad) {
     modalCloseLoad();
   }
@@ -102,7 +99,6 @@ window.addEventListener("click", function (e) {
 // modal form for loading finish here
 
 // modal for confirm clearing start here
-// modal form for saving start here
 
 const modalConfirm = document.querySelector(".main-modal-confirm");
 const modalConfirmCloseBtn = document.querySelector(".modal-close-confirm");
@@ -122,18 +118,15 @@ document.querySelector(".clear-all").addEventListener("click", function () {
 });
 
 modalConfirmCloseBtn.addEventListener("click", function (e) {
-  // e.preventDefault();
   modalConfirmClose();
 });
 
 window.addEventListener("click", function (e) {
-  // e.preventDefault();
   if (e.target == modalConfirm) {
     modalConfirmClose();
   }
 });
 
-// modal form for saving finish here
 // modal for confirm clearing finish here
 
 //drum app start here
@@ -163,8 +156,7 @@ class Drum {
     this.increaseBtn = document.querySelector(".increase");
     this.decreaseBtn = document.querySelector(".decrease");
     this.saveBtn = document.querySelector("#save-btn-form");
-    this.clearBtn = document.querySelector('#confirm-clear')
-  
+    this.clearBtn = document.querySelector("#confirm-clear");
   }
 
   // return true/false doe to the random number is odd or not
@@ -265,8 +257,11 @@ class Drum {
     }
   }
 
+  //hovering sound icon will showing a tooltip that will open a range slider for volume
+  //we take the volume by input listener and change it via this method
   volume(e) {
     const dataTrack = e.target.getAttribute("data-track");
+    //we have to make it a number between 0 to 1 to assign it to the volume
     const volume = e.target.value / 100;
     switch (dataTrack) {
       case "kick":
@@ -287,6 +282,7 @@ class Drum {
     }
   }
 
+  //changing the text of span to show input value oninput
   volumeNum(e) {
     let volumeNum = e.target.nextElementSibling;
     volumeNum.innerText = e.target.value;
@@ -391,13 +387,20 @@ class Drum {
   }
 
   //saving the current track
+  //BCS of complication of this method we add comment to every section
   save(trackName) {
-    const activepads = document.querySelectorAll(".pad");
+    // we get all the pad when the method execute
+    const currentPads = document.querySelectorAll(".pad");
+    //we cant push a nodeList into Local storage . so we have to change it to an array by this mehtod first
+    //we push the outer html to an array
+    //we added new-save class to add the new saved track to add an eventListener to them
     const newArr = [];
-    activepads.forEach((el) => {
+    currentPads.forEach((el) => {
       el.classList.remove("new-save");
       newArr.push(el.outerHTML);
     });
+
+    //then we push volume and tracknumbers to end of the array and then we push tempo
     newArr.push(document.querySelector(".effect-volume").value / 100);
     newArr.push(document.querySelector(".clap-volume").value / 100);
     newArr.push(document.querySelector(".hihat-volume").value / 100);
@@ -411,9 +414,11 @@ class Drum {
     let tempo = document.querySelector(".tempo-num").textContent;
     tempo = Number(tempo);
     newArr.push(tempo);
+    //after pushing all value we need. then we save it to local storage by the chosen name
     localStorage.setItem(`${trackName}`, JSON.stringify(newArr));
 
     //showing the saved track in loading page
+    //after loading the page all saved track will be shown in the load page but if we want to show the new saved track too, then we need to add it here
     const item = document.createElement("div");
     item.innerText = trackName;
     item.classList.add("track-load-style");
@@ -424,19 +429,24 @@ class Drum {
     loadContent.forEach((el) => {
       el.addEventListener("click", (track) => {
         const loadTrack = track.target.textContent;
+        //then we call the load method if user click on the track name
         this.load(loadTrack);
       });
     });
   }
 
+  //loading a track
+  //this is a complicated method so we will add comment in every section
   load(trackName) {
+    //we get all current pads to prepare the stage for loading
     let pads = document.querySelectorAll(".pad");
+    //we will remove all the current activated pad to prepare the stage for loading
     pads.forEach((pad) => {
       pad.classList.remove("active");
     });
+    //then we get the clicked track from local storage and make it an array again
     let trackArray = JSON.parse(localStorage.getItem(trackName));
     //removing the last element and assign it to a varible
-    //changing the sound by loaded value
     let tempo = trackArray.pop();
     let effectSrc = trackArray.pop();
     this.effectAudio.src = effectSrc;
@@ -449,6 +459,7 @@ class Drum {
     let kickSrc = trackArray.pop();
     this.kickAudio.src = kickSrc;
 
+    //changing the sound volume by loaded value and then changing the number that showing in the span
     let kickVolume = trackArray.pop();
     this.kickAudio.volume = kickVolume;
     document.querySelector(".kick-volume").value = kickVolume * 100;
@@ -479,9 +490,11 @@ class Drum {
     document.querySelector(".effect-volume").nextElementSibling.innerText =
       effectVolume * 100;
 
-    // change what the select showing to us
+    // change what the select input showing to us
     document.querySelectorAll("select").forEach((select) => {
+      //taking number of options
       let optionLength = select.options.length;
+      //evaluate every options and if the option src was equal to the loaded one then we assign the i to the input selectedIndex
       for (let i = 0; i < optionLength; i++) {
         if (select.options[i].value == kickSrc) {
           select.options.selectedIndex = i;
@@ -498,9 +511,10 @@ class Drum {
     });
 
     //we want to make number of pads as number of the loaded track to activate them
+    //so first we calculate the number of pad in every row
     let loadLength = trackArray.length;
     let lengthDiffrence = (loadLength - pads.length) / 5;
-
+//then we check if the pads are more than the loaded one we call the increasePad() method by a for loop and same for less pad than loaded one
     if (lengthDiffrence > 0) {
       for (let i = lengthDiffrence; i > 0; i--) {
         this.increasePad();
@@ -510,7 +524,10 @@ class Drum {
         this.decreasePad();
       }
     }
+    //after increasing or decreasing pads then we have to get current pads again
     pads = document.querySelectorAll(".pad");
+    //then for every element in trackArray that have active  class we add active class to the same index pad in pads nodeList
+    //BCS if the element not contain the active class will return a negative value (-1) so we put this if statement to get active pads
     trackArray.forEach((el, index) => {
       if (el.indexOf("active") >= 0) {
         pads[index].classList.add("active");
@@ -521,9 +538,11 @@ class Drum {
     this.changeTempo(tempo);
     this.updateTempo(tempo);
     this.tempoSlider.value = tempo;
+    //we will close the modal after user clicking on a track name
     modalCloseLoad();
 
     //update drum.pads and call the activePad eventLisener again
+    //BCS the new pads that added by increasePad() method have not the click listener so we have to add this event listener again (and the animation listener too)
     drum.pads = document.querySelectorAll(".pad");
     drum.pads.forEach((pad) => {
       pad.addEventListener("click", drum.activePad);
@@ -533,6 +552,7 @@ class Drum {
     });
   }
 
+  //remove the active class from all pads
   clearActive() {
     let pads = document.querySelectorAll(".pad");
     pads.forEach((pad) => {
@@ -540,7 +560,9 @@ class Drum {
     });
   }
 
+  //this method is same as the load() method. so we just add comment to new option here
   loadSamples(trackName) {
+    //we add some song for example
     const weWillRockYou = [
       "pad kick-pad b0 active",
       "pad kick-pad b1 active",
@@ -647,6 +669,7 @@ class Drum {
       "./sounds/effect7.mp3",
       300,
     ];
+// Atefeh is my girlfriend and all of these sample songs created by her. she is a good musician. her musical instrument is Daf.
     const heartOfAtefeh = [
       "pad kick-pad b0 active",
       "pad kick-pad b1",
@@ -1037,6 +1060,9 @@ class Drum {
     pads.forEach((pad) => {
       pad.classList.remove("active");
     });
+    
+    //one of deffrence between this method and load method
+    //we get clicked name and evaluate by a Switch then we assign the right sample to trackArray and the rest of things are same as load method
     let trackArray;
     switch (trackName) {
       case "we will rock you":
@@ -1061,6 +1087,7 @@ class Drum {
         trackArray = danceOfLovers;
         break;
     }
+
     //removing the last element and assign it to a varible
     //changing the sound by loaded value
     let tempo = trackArray.pop();
@@ -1075,6 +1102,7 @@ class Drum {
     let kickSrc = trackArray.pop();
     this.kickAudio.src = kickSrc;
 
+    //changing the volume of the every row by loaded value
     let kickVolume = trackArray.pop();
     this.kickAudio.volume = kickVolume;
     document.querySelector(".kick-volume").value = kickVolume * 100;
@@ -1105,7 +1133,7 @@ class Drum {
     document.querySelector(".effect-volume").nextElementSibling.innerText =
       effectVolume * 100;
 
-    // change what the select showing to us
+    // change what the select input showing to us
     document.querySelectorAll("select").forEach((select) => {
       let optionLength = select.options.length;
       for (let i = 0; i < optionLength; i++) {
@@ -1160,12 +1188,13 @@ class Drum {
   }
 }
 
-//////////////////////////////////////////
-/////////////////////////////////////
-////////////////////////////////
-///////////////////////////
-//////////////////////
-/////////////////
+//////////////////////////////////////////////
+////////////////////////////////////////
+///////////////////////////////////
+//////////////////////////////
+/////////////////////////
+////////////////////
+//EventListeners
 
 // making a new object of the class Drum
 const drum = new Drum();
@@ -1189,7 +1218,6 @@ drum.decreaseBtn.addEventListener("click", function () {
 });
 
 //add event listener to every pad that had been clicked and make them active
-
 drum.pads.forEach((pad) => {
   pad.addEventListener("click", drum.activePad);
   pad.addEventListener("animationend", function () {
@@ -1204,17 +1232,19 @@ drum.playBtn.addEventListener("click", function () {
   drum.start();
 });
 
-//changing the sounds when the user change it trough the select options
+//changing the sounds when the user change it through the select options
 drum.selectS.forEach((select) => {
   select.addEventListener("change", function (e) {
     drum.changeSound(e);
   });
 });
 
+//change the volume of every row by range input
 drum.volumeBtnS.forEach((btn) => {
   btn.addEventListener("input", function (e) {
     drum.volume(e);
   });
+  //change the volume number that showed in the span
   btn.addEventListener("input", function (e) {
     drum.volumeNum(e);
   });
@@ -1242,6 +1272,9 @@ drum.randomizeAllBtn.addEventListener("click", function () {
   drum.randomizeAll();
 });
 
+//saving a track
+//at first we pop-up a form to get a name from user
+//then we evaluate the name (for empty ones) and then close the modal then we sed this name to the save() method
 drum.saveBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const savingError = document.querySelector(".saving-error");
@@ -1260,7 +1293,7 @@ drum.saveBtn.addEventListener("click", function (e) {
 
 //load contents in the load page from localstorage
 {
-  // LS
+  // get the track names that saved in LS and show them in the load page
   for (let i = 0; i < localStorage.length; i++) {
     const trackName = localStorage.key(i);
     const item = document.createElement("div");
@@ -1268,6 +1301,7 @@ drum.saveBtn.addEventListener("click", function (e) {
     item.classList.add("track-load-style");
     document.querySelector(".your-tracks-content").appendChild(item);
   }
+  //add click listener to the element and then call the load method if user click
   const loadContentS = document.querySelectorAll(".track-load-style");
   loadContentS.forEach((item) => {
     item.classList.remove("new-save");
@@ -1277,25 +1311,25 @@ drum.saveBtn.addEventListener("click", function (e) {
     });
   });
 
-  // SS
-
+  // load the samples and add click listener, if user clicked
   const sampleContentS = document.querySelectorAll(".sample-load-style");
   sampleContentS.forEach((item) => {
     item.addEventListener("click", function (track) {
-      const loadTrack = track.target.textContent;
+      // use trim() method to avoid white space in html element
+      const loadTrack = track.target.textContent.trim();
       drum.loadSamples(loadTrack);
     });
   });
 }
 
+//add a confirm form by modal for clearing the stage
 drum.clearBtn.addEventListener("click", function (e) {
   e.preventDefault();
   drum.clearActive();
   modalConfirmClose();
 });
-document.querySelector('#cancel-clear').addEventListener('click', function(e){
+// add event listener if user clicked on cancel in clear confirmation
+document.querySelector("#cancel-clear").addEventListener("click", function (e) {
   e.preventDefault();
-modalConfirmClose();
+  modalConfirmClose();
 });
-
-// console.log(document.querySelector('#kick-select').options[2])

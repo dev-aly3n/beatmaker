@@ -1390,7 +1390,7 @@ h2 {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.general-controls{
+.general-controls {
   display: flex;
   flex-direction: column;
 }
