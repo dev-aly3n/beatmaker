@@ -1275,20 +1275,36 @@ drum.randomizeAllBtn.addEventListener("click", function () {
 //saving a track
 //at first we pop-up a form to get a name from user
 //then we evaluate the name (for empty ones) and then close the modal then we sed this name to the save() method
+//in the (else if) statement we check if the chosen name is already exist in the LS or not
 drum.saveBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const savingError = document.querySelector(".saving-error");
+  const duplicateError = document.querySelector(".duplicate");
   let trackName = document.querySelector("#saved-name");
-  if (trackName.value !== "") {
+  let duplicate = false;
+  
+  for (let i = 0; i < localStorage.length; i++) {
+    const trackFromLS = localStorage.key(i);
+    if(trackName.value == trackFromLS){
+      duplicate = true;
+    }
+  }
+  if (trackName.value !== "" && !duplicate) {
     modalClose();
     drum.save(trackName.value);
     trackName.value = "";
-  } else {
+
+  } else if(duplicate){
+    duplicateError.style.display = 'block';
+  }
+  
+  else {
     savingError.style.display = "block";
   }
   setTimeout(() => {
     savingError.style.display = "none";
-  }, 3000);
+    duplicateError.style.display = 'none';
+  }, 4000);
 });
 
 //load contents in the load page from localstorage
