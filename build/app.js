@@ -59,6 +59,8 @@ modalCloseBtn.addEventListener("click", function (e) {
   modalClose();
 });
 
+// /// © 2021 dev-aly3n ///
+
 window.addEventListener("click", function (e) {
   if (e.target == modal) {
     modalClose();
@@ -1271,6 +1273,7 @@ drum.randomizeBtnS.forEach((btn) => {
 drum.randomizeAllBtn.addEventListener("click", function () {
   drum.randomizeAll();
 });
+// /// © 2021 dev-aly3n ///
 
 //saving a track
 //at first we pop-up a form to get a name from user
@@ -1295,13 +1298,17 @@ drum.saveBtn.addEventListener("click", function (e) {
     trackName.value = "";
   } else if (duplicate) {
     duplicateError.style.display = "block";
+    setTimeout(() => {
+      duplicateError.style.display = "none";
+    }, 4000);
   } else {
     savingError.style.display = "block";
+    setTimeout(() => {
+      savingError.style.display = "none";
+
+    }, 4000);
   }
-  setTimeout(() => {
-    savingError.style.display = "none";
-    duplicateError.style.display = "none";
-  }, 4000);
+
 });
 
 //load contents in the load page from localstorage

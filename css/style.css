@@ -259,6 +259,7 @@
     @apply pointer-events-none;
   }
 
+  /* /// © 2021 dev-aly3n /// */
   .kick-pad,
   .snare-pad,
   .hihat-pad,
@@ -406,6 +407,7 @@
       transform: scale(1.2);
     }
   }
+/* /// © 2021 dev-aly3n /// */
 }
 
 /* .{
