@@ -348,6 +348,7 @@
 
   .pad {
     transition: all 0.5s easee;
+    @apply shadow-inner
   }
 
   .controls button {
