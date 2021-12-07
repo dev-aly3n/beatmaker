@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/style.css -o build/style.css",
-    "watch": "postcss css/style.css -o build/style.css --watch",
-    "prod": "cross-env NODE_ENV=production postcss css/style.css -o build/style.css"
+    "build": "postcss css/style.css -o public/style.css",
+    "watch": "postcss css/style.css -o public/style.css --watch",
+    "prod": "cross-env NODE_ENV=production postcss css/style.css -o public/style.css"
   },
   "keywords": [],
   "author": "",
