@@ -251,7 +251,7 @@
 
   .beat-container {
     min-height: 100vh;
-    @apply flex justify-center items-center flex-col;
+    @apply flex justify-center items-center flex-col w-full;
   }
 
   i,
@@ -339,7 +339,7 @@
   }
 
   .controls {
-    @apply flex justify-between items-center w-72 ml-4 lg:ml-64;
+    @apply flex justify-between items-center w-72 ml-4 lg:ml-7 xl:ml-44;
   }
 
   h2 {
