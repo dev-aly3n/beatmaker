@@ -1,6 +1,6 @@
 #beatmaker
 A funny beat maker project.
-
+Live: https://beatmaker.aly3n.dev/
 technologies: html5 || css3 || javascript || tailwindcss
 
 /// © 2021 dev-aly3n ///
